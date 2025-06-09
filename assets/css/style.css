@@ -33,14 +33,17 @@ h1 {
 }
 
 nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1rem; /* vertical / horizontal spacing */
     margin-top: 1rem;
 }
 
 nav a {
-    margin: 0 1rem;
-    font-size: 0.9rem;
     text-decoration: underline dotted;
     color: #333;
+    font-size: 0.9rem;
 }
 
 h2,
@@ -179,4 +182,10 @@ blockquote span {
 
 ul li {
     margin-bottom: 0.5rem;
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 2rem;
+    }
 }
