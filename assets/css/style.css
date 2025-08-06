@@ -825,6 +825,14 @@ button {
 }
 
 /* ===== Footer ===== */
+.site-footer {
+    text-align: center;
+    padding: var(--space-lg) 0;
+    border-top: 1px solid var(--gray-200);
+    font-size: 0.875rem;
+    color: var(--gray-600);
+}
+
 footer {
     padding: var(--space-lg) 0;
     border-top: 1px solid var(--gray-200);
@@ -973,7 +981,7 @@ header {
     text-decoration: none;
     color: var(--black);
     font-weight: 900;
-    font-size: 1.25rem;
+    font-size: 1.5rem; /* Increased from 1.25rem */
     transition: opacity 0.2s;
 }
 
@@ -982,8 +990,8 @@ header {
 }
 
 .logo-icon {
-    width: 32px;
-    height: 32px;
+    width: 40px; /* Increased from 32px */
+    height: 40px; /* Increased from 32px */
 }
 
 .logo-text {
@@ -1058,12 +1066,12 @@ header {
     }
 
     .logo-text {
-        font-size: 1.125rem;
+        font-size: 1.35rem; /* Increased from 1.125rem */
     }
 
     .logo-icon {
-        width: 28px;
-        height: 28px;
+        width: 36px; /* Increased from 28px */
+        height: 36px;
     }
 
     .nav-cta {
