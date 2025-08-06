@@ -1,0 +1,351 @@
+---
+layout: default
+title: Help Center - Daily Benji
+---
+
+<style>
+    /* Help Page Styles */
+    .help-hero {
+        text-align: center;
+        padding: 4rem 0 3rem;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .help-hero h1 {
+        margin-bottom: 1rem;
+    }
+
+    .help-hero p {
+        font-size: 1.125rem;
+        color: var(--gray-600);
+    }
+
+    /* Coming Soon Section */
+    .coming-soon-section {
+        background: var(--gray-50);
+        padding: 3rem 2rem;
+        border-radius: 12px;
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 4rem;
+    }
+
+    .coming-soon-section h2 {
+        margin-bottom: 1rem;
+    }
+
+    .coming-soon-section p {
+        color: var(--gray-700);
+        margin-bottom: 1.5rem;
+    }
+
+    .notify-form {
+        display: flex;
+        gap: 1rem;
+        max-width: 400px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .notify-form input {
+        flex: 1 1 250px;
+        padding: 0.75rem;
+        border: 1px solid var(--gray-300);
+        border-radius: 6px;
+        font-size: 1rem;
+    }
+
+    .notify-form button {
+        padding: 0.75rem 1.5rem;
+        background: var(--black);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .notify-form button:hover {
+        background: var(--gray-800);
+        transform: translateY(-1px);
+    }
+
+    /* FAQ Section */
+    .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 0 4rem;
+    }
+
+    .faq-intro {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .faq-intro h2 {
+        margin-bottom: 1rem;
+    }
+
+    .faq-categories {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .faq-category h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid var(--gray-200);
+    }
+
+    .faq-item {
+        margin-bottom: 2rem;
+    }
+
+    .faq-question {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--black);
+    }
+
+    .faq-answer {
+        color: var(--gray-700);
+        line-height: 1.6;
+    }
+
+    .faq-answer a {
+        color: var(--black);
+        text-decoration: underline;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        background: var(--black);
+        color: white;
+        padding: 3rem 2rem;
+        border-radius: 12px;
+        text-align: center;
+        max-width: 600px;
+        margin: 4rem auto 0;
+    }
+
+    .contact-section h2 {
+        color: white;
+        margin-bottom: 1rem;
+    }
+
+    .contact-section p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-email {
+        display: inline-block;
+        color: white;
+        font-size: 1.25rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-bottom: 2px solid white;
+        transition: opacity 0.2s;
+    }
+
+    .contact-email:hover {
+        opacity: 0.8;
+    }
+
+    .response-time {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        .faq-categories {
+            grid-template-columns: 1fr;
+        }
+
+        .notify-form {
+            flex-direction: column;
+        }
+
+        .notify-form input {
+            width: 100%;
+        }
+    }
+</style>
+
+<section class="help-hero">
+    <h1>Help Center</h1>
+    <p>Everything you need to know about setting up and using Daily Benji</p>
+</section>
+
+<section class="coming-soon-section">
+    <h2>📚 Bank Setup Guides Coming Soon</h2>
+    <p>
+        We're creating step-by-step guides for every major bank and credit card.
+        These guides will show you exactly how to enable transaction alerts and
+        set up email forwarding.
+    </p>
+</section>
+
+<section class="faq-container">
+    <div class="faq-intro">
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers to common questions about Daily Benji</p>
+    </div>
+
+    <div class="faq-categories">
+        <div class="faq-category">
+            <h3>Getting Started</h3>
+
+            <div class="faq-item">
+                <p class="faq-question">How does Daily Benji work?</p>
+                <p class="faq-answer">
+                    You forward your bank transaction emails to your unique
+                    Daily Benji address. We organize them and send you a
+                    beautiful summary every morning at.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">What banks do you support?</p>
+                <p class="faq-answer">
+                    All major US banks and credit cards that send transaction
+                    emails, including Chase, Bank of America, Citi, Capital One,
+                    Amex, Wells Fargo, Discover, and many more.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">How long does setup take?</p>
+                <p class="faq-answer">
+                    About 15 minutes total. You'll spend 3-5 minutes per credit
+                    card enabling alerts, then a few minutes setting up email
+                    forwarding rules.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">Do you need my bank password?</p>
+                <p class="faq-answer">
+                    Never. We only read the transaction emails you forward to
+                    us. We never access your bank accounts or require any
+                    passwords.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-category">
+            <h3>Using Daily Benji</h3>
+
+            <div class="faq-item">
+                <p class="faq-question">What time does the email arrive?</p>
+                <p class="faq-answer">
+                    Whenever you want! But your Daily Benji is set to arrive at
+                    6 AM in your timezone, every single day. You can change this
+                    time by replying to any daily email.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">What if I get a new credit card?</p>
+                <p class="faq-answer">
+                    Just turn on transaction alerts for the new card and add its
+                    email address to your forwarding rules. Takes about 5
+                    minutes.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">Can I track cash purchases?</p>
+                <p class="faq-answer">
+                    Not currently. Daily Benji tracks credit and debit card
+                    transactions that generate email alerts.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">Can my spouse get the emails too?</p>
+                <p class="faq-answer">
+                    Yes! Add their email as a "reporting email" in your
+                    settings, and they'll receive the same daily summary.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-categories">
+        <div class="faq-category">
+            <h3>Privacy & Security</h3>
+
+            <div class="faq-item">
+                <p class="faq-question">What data do you store?</p>
+                <p class="faq-answer">
+                    We only store transaction details from forwarded emails:
+                    merchant names, amounts, dates, and the last 4 digits of
+                    your card. We never see full card numbers or account
+                    details.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">Do you sell my data?</p>
+                <p class="faq-answer">
+                    Never. You pay us a subscription, we provide a service. Your
+                    spending data is never sold, shared, or used for marketing.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">How do I delete my data?</p>
+                <p class="faq-answer">
+                    Email us at support@dailybenji.com and we'll remove all your
+                    data within 24 hours. We'll confirm once it's done.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-category">
+            <h3>Account & Billing</h3>
+
+            <div class="faq-item">
+                <p class="faq-question">How much does it cost?</p>
+                <p class="faq-answer">
+                    Daily Benji is free during our beta period. When we launch,
+                    it will be a simple monthly subscription (beta users get a
+                    discount).
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">How do I cancel?</p>
+                <p class="faq-answer">
+                    You can cancel anytime from your account dashboard. Simple
+                    and straightforward, no hoops to jump through.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">Can I change my magic email address?</p>
+                <p class="faq-answer">
+                    Not currently. Your magic email is permanent once created,
+                    so choose wisely! This helps ensure reliable email delivery.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="contact-section">
+    <h2>Still Have Questions?</h2>
+    <p>We're here to help. Reach out anytime.</p>
+    <a href="mailto:help@dailybenji.com" class="contact-email"
+        >help@dailybenji.com</a
+    >
+    <p class="response-time">We typically respond within 24 hours</p>
+</div>
