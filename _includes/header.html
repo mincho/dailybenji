@@ -1,26 +1,20 @@
 <header>
-    <h1
-        style="
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        "
-    >
-        <img
-            src="/assets/images/benji-icon.svg"
-            alt="Benji Logo"
-            style="width: 56px; vertical-align: middle"
-        />
-        <span style="white-space: nowrap">The Daily Benji</span>
-    </h1>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/pricing">Pricing</a>
-        <a href="/samples">Samples</a>
-        <a href="/security">Security</a>
-        <a href="/signup">Signup</a>
+    <nav class="nav-container">
+        <a href="/" class="nav-logo">
+            <img
+                src="/assets/images/benji-icon.svg"
+                alt="Daily Benji"
+                class="logo-icon"
+            />
+            <span class="logo-text">Daily Benji</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="/how-it-works">How it Works</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/help">Help</a></li>
+        </ul>
+
+        <a href="/get-started" class="nav-cta">Join Waitlist</a>
     </nav>
 </header>

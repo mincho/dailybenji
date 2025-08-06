@@ -1,0 +1,593 @@
+---
+layout: default
+title: How It Works - Daily Benji
+---
+
+<style>
+    /* Page-specific styles */
+    .hero-section {
+        text-align: center;
+        padding: 4rem 0 3rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .hero-section h1 {
+        margin-bottom: 1rem;
+    }
+
+    .hero-section .subtitle {
+        font-size: 1.25rem;
+        color: var(--gray-600);
+        margin-bottom: 2rem;
+    }
+
+    .time-investment {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 2rem;
+        background: var(--gray-50);
+        border-radius: 50px;
+        font-weight: 600;
+    }
+
+    .time-investment .icon {
+        font-size: 1.5rem;
+    }
+
+    /* Visual Steps Section */
+    .setup-visual {
+        background: var(--gray-50);
+        padding: 4rem 0;
+        margin: 3rem 0;
+    }
+
+    .setup-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .setup-overview {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .setup-step {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s;
+    }
+
+    .setup-step:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .step-number {
+        width: 48px;
+        height: 48px;
+        background: var(--black);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0 auto 1rem;
+    }
+
+    .step-title {
+        font-size: 1.125rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .step-time {
+        font-size: 0.875rem;
+        color: var(--gray-600);
+    }
+
+    /* Detailed Instructions */
+    .instructions-section {
+        max-width: 800px;
+        margin: 4rem auto;
+    }
+
+    .instruction-block {
+        margin-bottom: 4rem;
+    }
+
+    .instruction-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .instruction-number {
+        width: 40px;
+        height: 40px;
+        background: var(--black);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        flex-shrink: 0;
+    }
+
+    .instruction-title h2 {
+        margin: 0;
+        font-size: 1.5rem;
+    }
+
+    .instruction-subtitle {
+        color: var(--gray-600);
+        font-size: 0.875rem;
+    }
+
+    /* Visual Examples */
+    .example-box {
+        background: white;
+        border: 2px solid var(--gray-200);
+        border-radius: 8px;
+        padding: 2rem;
+        margin: 1.5rem 0;
+    }
+
+    .example-header {
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .bank-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    .bank-item {
+        padding: 0.75rem;
+        background: var(--gray-50);
+        border-radius: 6px;
+        text-align: center;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .bank-item:hover {
+        background: var(--gray-100);
+    }
+
+    .forwarding-visual {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem;
+        background: var(--gray-50);
+        border-radius: 8px;
+        margin: 1.5rem 0;
+    }
+
+    .email-box {
+        flex: 1;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .email-box .label {
+        font-size: 0.875rem;
+        color: var(--gray-600);
+        margin-bottom: 0.5rem;
+    }
+
+    .email-box .email {
+        font-family: var(--font-mono);
+        font-weight: 600;
+        color: var(--black);
+    }
+
+    .arrow {
+        font-size: 2rem;
+        color: var(--gray-400);
+    }
+
+    /* Important Callout */
+    .callout {
+        background: #e8f0fe;
+        border-left: 4px solid #1a73e8;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        border-radius: 4px;
+    }
+
+    .callout-title {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: #1a73e8;
+    }
+
+    .callout p {
+        margin: 0;
+        color: var(--gray-700);
+    }
+
+    /* What Happens Next */
+    .timeline {
+        position: relative;
+        padding-left: 3rem;
+        margin: 2rem 0;
+    }
+
+    .timeline::before {
+        content: "";
+        position: absolute;
+        left: 15px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--gray-200);
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -39px;
+        top: 8px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--black);
+        border: 3px solid white;
+        box-shadow: 0 0 0 2px var(--gray-200);
+    }
+
+    .timeline-title {
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+    }
+
+    .timeline-description {
+        color: var(--gray-600);
+        font-size: 0.875rem;
+    }
+
+    /* FAQ Section */
+    .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .faq-item h4 {
+        margin-bottom: 0.5rem;
+    }
+
+    .faq-item p {
+        font-size: 0.875rem;
+        color: var(--gray-600);
+        margin: 0;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        background: var(--black);
+        color: white;
+        text-align: center;
+        padding: 4rem 2rem;
+        margin-top: 4rem;
+        border-radius: 12px;
+    }
+
+    .cta-section h2 {
+        color: white;
+        margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 2rem;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: white;
+        color: var(--black);
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: all 0.2s;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .setup-overview {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .bank-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .faq-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .forwarding-visual {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .arrow {
+            transform: rotate(90deg);
+        }
+    }
+</style>
+
+<section class="hero-section">
+    <h1>Set It Once. See It Every Morning.</h1>
+    <p class="subtitle">
+        Turn on bank alerts. Forward them to us. Wake up to clarity.<br />
+        No apps to manage. No passwords to remember. Just daily awareness.
+    </p>
+    <div class="time-investment">
+        <span class="icon">⏱️</span>
+        <span>One-time setup: ~15 minutes for all your cards</span>
+    </div>
+</section>
+
+<section class="setup-visual">
+    <div class="setup-container">
+        <h2 style="text-align: center; margin-bottom: 3rem">
+            Three Steps to Daily Financial Clarity
+        </h2>
+
+        <div class="setup-overview">
+            <div class="setup-step">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Turn On Bank Alerts</h3>
+                <p>
+                    Enable transaction emails for each credit card (we'll show
+                    you how)
+                </p>
+                <p class="step-time">~3 minutes per card</p>
+            </div>
+
+            <div class="setup-step">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Set Up Forwarding</h3>
+                <p>Auto-forward bank emails to your Daily Benji address</p>
+                <p class="step-time">~2 minutes per bank</p>
+            </div>
+
+            <div class="setup-step">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Get Daily Emails</h3>
+                <p>Tomorrow morning: your first complete spending summary</p>
+                <p class="step-time">Forever</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="instructions-section">
+    <div class="instruction-block">
+        <div class="instruction-header">
+            <div class="instruction-number">1</div>
+            <div class="instruction-title">
+                <h2>Enable Transaction Alerts</h2>
+                <p class="instruction-subtitle">
+                    Do this once for each credit card you own
+                </p>
+            </div>
+        </div>
+
+        <p>
+            Every bank can email you when you make a purchase. They just don't
+            turn it on by default. Here's what to do:
+        </p>
+
+        <div class="example-box">
+            <div class="example-header">
+                <span>💳</span> For each of your credit cards:
+            </div>
+            <ol>
+                <li>Log into your bank's website (not the app)</li>
+                <li>Find "Alerts" or "Notifications" in settings</li>
+                <li>
+                    Turn on email alerts for
+                    <strong>all transactions over $0</strong>
+                </li>
+                <li>Make sure they're sent to your primary email</li>
+            </ol>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">🎯 Pro Tip</div>
+            <p>
+                Set the threshold to $0.01 to catch every transaction. Some
+                banks default to $50+ which misses most daily spending.
+            </p>
+        </div>
+
+        <p><strong>We have guides for these banks:</strong></p>
+        <div class="bank-list">
+            <div class="bank-item">Chase</div>
+            <div class="bank-item">Bank of America</div>
+            <div class="bank-item">Citi</div>
+            <div class="bank-item">Capital One</div>
+            <div class="bank-item">American Express</div>
+            <div class="bank-item">Wells Fargo</div>
+            <div class="bank-item">Discover</div>
+            <div class="bank-item">US Bank</div>
+            <div class="bank-item">+ 22 more</div>
+        </div>
+
+        <p style="text-align: center; margin-top: 2rem">
+            <a href="/help" style="font-weight: 600"
+                >View step-by-step guides for each bank →</a
+            >
+        </p>
+    </div>
+
+    <div class="instruction-block">
+        <div class="instruction-header">
+            <div class="instruction-number">2</div>
+            <div class="instruction-title">
+                <h2>Forward Alerts to Daily Benji</h2>
+                <p class="instruction-subtitle">
+                    Set up auto-forwarding rules in your email
+                </p>
+            </div>
+        </div>
+
+        <p>
+            Now we'll make those bank alerts automatically flow to your Daily
+            Benji inbox. You'll do this in Gmail (or your email provider):
+        </p>
+
+        <div class="example-box">
+            <div class="example-header">
+                <span>📧</span> Create forwarding rules:
+            </div>
+            <div class="forwarding-visual">
+                <div class="email-box">
+                    <div class="label">FROM</div>
+                    <div class="email">alerts@chase.com</div>
+                </div>
+                <div class="arrow">→</div>
+                <div class="email-box">
+                    <div class="label">TO</div>
+                    <div class="email">you@dailybenji.email</div>
+                </div>
+            </div>
+            <p
+                style="
+                    text-align: center;
+                    color: var(--gray-600);
+                    font-size: 0.875rem;
+                "
+            >
+                One rule per bank. Set it once, works forever.
+            </p>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">🔒 Privacy Note</div>
+            <p>
+                We only see the transaction emails you forward. We never access
+                your email account or banking information.
+            </p>
+        </div>
+    </div>
+
+    <div class="instruction-block">
+        <div class="instruction-header">
+            <div class="instruction-number">3</div>
+            <div class="instruction-title">
+                <h2>That's It. Seriously.</h2>
+                <p class="instruction-subtitle">
+                    Your part is done forever (unless you get a new card)
+                </p>
+            </div>
+        </div>
+
+        <p>Once your alerts are flowing to Daily Benji, here's what happens:</p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-title">Today</div>
+                <div class="timeline-description">
+                    Your transaction emails start forwarding to us
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">Tonight</div>
+                <div class="timeline-description">
+                    We organize and summarize your spending
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">Tomorrow 6 AM</div>
+                <div class="timeline-description">
+                    Your first Daily Benji arrives
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">Every morning after</div>
+                <div class="timeline-description">
+                    Complete spending awareness, automatically
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 style="text-align: center; margin-top: 6rem; margin-bottom: 3rem">
+        Common Questions
+    </h2>
+
+    <div class="faq-grid">
+        <div class="faq-item">
+            <h4>What if I get a new credit card?</h4>
+            <p>
+                Just add alerts for that card and forward from that bank. Takes
+                5 minutes.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h4>Do I need to categorize transactions?</h4>
+            <p>
+                Nope. We identify merchants automatically. Just forward and
+                forget.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h4>What if I miss setting up a card?</h4>
+            <p>
+                You'll notice immediately - those transactions won't appear in
+                your daily email.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h4>Can family members share an account?</h4>
+            <p>
+                Yes! Just add your family members' email addresses to the
+                account.
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="cta-section">
+    <h2>Ready to Never Wonder Where Your Money Went?</h2>
+    <p>
+        Join a small but growing group of people who wake up financially aware.
+    </p>
+    <a href="/get-started" class="cta-button">Get Your Daily Benji</a>
+</div>

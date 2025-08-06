@@ -1,0 +1,377 @@
+---
+layout: default
+title: About - Daily Benji
+---
+
+<style>
+    /* About Page Styles */
+    .about-hero {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 3rem 0 2rem;
+        text-align: center;
+    }
+
+    .about-hero h1 {
+        margin-bottom: 1.5rem;
+    }
+
+    .about-intro {
+        font-size: 1.25rem;
+        line-height: 1.6;
+        color: var(--gray-700);
+    }
+
+    .story-section {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 3rem 0;
+    }
+
+    .story-section h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .story-section p {
+        font-size: 1.0625rem;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+        color: var(--gray-700);
+    }
+
+    .philosophy-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin: 3rem 0;
+        padding: 3rem 0;
+        border-top: 1px solid var(--gray-200);
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+    .philosophy-item {
+        text-align: center;
+    }
+
+    .philosophy-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .philosophy-item h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .philosophy-item p {
+        font-size: 0.875rem;
+        color: var(--gray-600);
+        margin: 0;
+    }
+
+    .belief-box {
+        background: var(--gray-50);
+        padding: 2rem;
+        border-radius: 8px;
+        margin: 2rem 0;
+        border-left: 4px solid var(--black);
+    }
+
+    .belief-box p {
+        font-size: 1.125rem;
+        line-height: 1.6;
+        margin: 0;
+        font-style: italic;
+    }
+
+    .business-model {
+        background: white;
+        border: 2px solid var(--gray-200);
+        border-radius: 8px;
+        padding: 2rem;
+        margin: 3rem 0;
+    }
+
+    .business-model h3 {
+        margin-bottom: 1rem;
+    }
+
+    .model-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .model-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .model-list .icon {
+        font-size: 1.25rem;
+        flex-shrink: 0;
+        margin-top: 0.125rem;
+    }
+
+    .anti-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .anti-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .anti-item .no {
+        color: #dc3545;
+        font-size: 1.5rem;
+        font-weight: 700;
+        flex-shrink: 0;
+    }
+
+    .anti-item h4 {
+        margin-bottom: 0.25rem;
+    }
+
+    .anti-item p {
+        font-size: 0.875rem;
+        color: var(--gray-600);
+        margin: 0;
+    }
+
+    .future-section {
+        text-align: center;
+        padding: 3rem 0;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .cta-section {
+        background: var(--black);
+        color: white;
+        text-align: center;
+        padding: 4rem 2rem;
+        margin-top: 4rem;
+        border-radius: 12px;
+    }
+
+    .cta-section h2 {
+        color: white;
+        margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 2rem;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: white;
+        color: var(--black);
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: all 0.2s;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        .philosophy-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .anti-list {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<section class="about-hero">
+    <h1>Built by People Who Actually Want to Use It</h1>
+    <p class="about-intro">
+        Daily Benji exists because we were tired of financial apps that felt
+        like homework. We wanted something that actually worked — by showing up
+        where we already were.
+    </p>
+</section>
+
+<section class="story-section">
+    <h2>Why We Built This</h2>
+
+    <p>
+        Here's the truth: between the two of us, we have over 20 credit cards.
+        We tried every app. They all had the same problem: we'd set them up,
+        feel virtuous for a week, then never open them again.
+    </p>
+
+    <p>
+        The login would time out. Two-factor codes would expire. By the time we
+        actually got in, we'd forgotten why we opened the app. Checking our
+        spending became a quarterly guilt trip instead of a daily habit.
+    </p>
+
+    <p>
+        So we built Daily Benji for ourselves. One email, every morning, with
+        yesterday's damage. No logging in. No categories to manage. No graphs to
+        interpret. Just the facts about where our money went, delivered with our
+        morning coffee.
+    </p>
+
+    <div class="belief-box">
+        <p>
+            "Financial success isn't about complex budgets or fancy tools. It's
+            about awareness. When you see your spending every single day, you
+            naturally spend less. Those extra $50-100 a month? That's real money
+            for retirement, college funds, or finally taking that vacation."
+        </p>
+    </div>
+</section>
+
+<section class="story-section">
+    <h2>What We Believe</h2>
+
+    <div class="philosophy-grid">
+        <div class="philosophy-item">
+            <div class="philosophy-icon">🔒</div>
+            <h3>Privacy First</h3>
+            <p>
+                We only see forwarded emails. Never your passwords, never your
+                accounts.
+            </p>
+        </div>
+
+        <div class="philosophy-item">
+            <div class="philosophy-icon">✨</div>
+            <h3>Simplicity Wins</h3>
+            <p>One email, one purpose. No feature creep, no complexity.</p>
+        </div>
+
+        <div class="philosophy-item">
+            <div class="philosophy-icon">💬</div>
+            <h3>Honest Communication</h3>
+            <p>
+                No marketing BS. No fake urgency. Just straight talk about your
+                money.
+            </p>
+        </div>
+    </div>
+
+    <h3>The Anti-App App</h3>
+
+    <p>
+        We're exhausted by apps that demand constant attention. Push
+        notifications. Streaks to maintain. Achievements to unlock. Points to
+        earn. It's all designed to keep you engaged, not to actually help.
+    </p>
+
+    <div class="anti-list">
+        <div class="anti-item">
+            <span class="no">✗</span>
+            <div>
+                <h4>No Surveillance</h4>
+                <p>
+                    We don't track your location, browsing, or shopping habits
+                </p>
+            </div>
+        </div>
+
+        <div class="anti-item">
+            <span class="no">✗</span>
+            <div>
+                <h4>No Manipulation</h4>
+                <p>No push notifications or guilt trips about your spending</p>
+            </div>
+        </div>
+
+        <div class="anti-item">
+            <span class="no">✗</span>
+            <div>
+                <h4>No Data Mining</h4>
+                <p>Your purchase history isn't our product to sell</p>
+            </div>
+        </div>
+
+        <div class="anti-item">
+            <span class="no">✗</span>
+            <div>
+                <h4>No Complexity</h4>
+                <p>No 47 features you'll never use. Just daily awareness.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="story-section">
+    <div class="business-model">
+        <h3>How We Stay Independent</h3>
+
+        <ul class="model-list">
+            <li>
+                <span class="icon">💵</span>
+                <div>
+                    <strong>Simple subscription model:</strong> You pay us a few
+                    dollars a month, we send you emails. No investors to please,
+                    no data to monetize.
+                </div>
+            </li>
+            <li>
+                <span class="icon">🛠️</span>
+                <div>
+                    <strong>Bootstrapped by choice:</strong> We're building this
+                    with our own money and early customer support. This keeps us
+                    focused on what you actually need.
+                </div>
+            </li>
+            <li>
+                <span class="icon">🤝</span>
+                <div>
+                    <strong>Aligned incentives:</strong> We only succeed if you
+                    find Daily Benji valuable enough to pay for. No tricks, no
+                    dark patterns, no ads.
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="future-section">
+    <h2>What's Next</h2>
+
+    <p>
+        We believe in keeping things simple, but we're not stubborn. As Daily
+        Benji grows, we'll listen to what you need. Maybe that's better
+        insights, family sharing, or something we haven't thought of yet.
+    </p>
+
+    <p>
+        What won't change: our commitment to simplicity, privacy, and that
+        satisfying moment when you see exactly where your money went yesterday.
+    </p>
+
+    <p style="margin-top: 2rem">
+        <strong>Got ideas? Questions? Just want to say hi?</strong><br />
+        Email us at
+        <a href="mailto:hello@dailybenji.com">hello@dailybenji.com</a>
+    </p>
+</section>
+
+<div class="cta-section">
+    <h2>Ready to Try Something That Actually Works?</h2>
+    <p>
+        Join a small but growing group of people who wake up financially aware.
+    </p>
+    <a href="/get-started" class="cta-button">Get Daily Benji</a>
+</div>
