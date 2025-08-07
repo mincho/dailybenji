@@ -4,7 +4,6 @@ title: Join the Waitlist - Daily Benji
 ---
 
 <style>
-    /* Same styles as before */
     .waitlist-hero {
         text-align: center;
         padding: 4rem 0 2rem;
@@ -122,7 +121,44 @@ title: Join the Waitlist - Daily Benji
         }
     }
 
-    /* Rest of the styles... */
+    /* Success message styling */
+    .success-container {
+        text-align: center;
+        padding: 4rem 2rem;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .success-container h2 {
+        color: #155724;
+        margin-bottom: 1rem;
+    }
+
+    .success-container p {
+        font-size: 1.125rem;
+        color: var(--gray-700);
+        line-height: 1.6;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .waitlist-hero {
+            padding: 2rem 1rem;
+        }
+
+        .waitlist-form {
+            padding: 1.5rem;
+            margin: 0 1rem 2rem;
+        }
+
+        .waitlist-hero h1 {
+            font-size: 1.75rem;
+        }
+
+        .waitlist-hero p {
+            font-size: 1rem;
+        }
+    }
 </style>
 
 <section class="waitlist-hero">
@@ -182,21 +218,9 @@ title: Join the Waitlist - Daily Benji
 
 <!-- Success state (hidden by default) -->
 <div id="success-message" style="display: none">
-    <div style="text-align: center; padding: 3rem">
-        <h2 style="color: #155724; margin-bottom: 1rem">
-            🎉 You're on the list!
-        </h2>
-        <p
-            style="
-                font-size: 1.125rem;
-                color: var(--gray-700);
-                max-width: 500px;
-                margin: 0 auto;
-            "
-        >
-            Check your email for confirmation. We'll be in touch soon with your
-            beta access.
-        </p>
+    <div class="success-container">
+        <h2>🎉 You're on the list!</h2>
+        <p>Thanks for joining! We'll be in touch soon with your beta access.</p>
     </div>
 </div>
 
@@ -236,7 +260,7 @@ title: Join the Waitlist - Daily Benji
 
             try {
                 const response = await fetch(
-                    "http://localhost:3000/api/v1/waitlist",
+                    "http://app.dailybenji.com/api/v1/waitlist",
                     {
                         method: "POST",
                         headers: {

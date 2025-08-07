@@ -2,19 +2,57 @@
     <nav class="nav-container">
         <a href="/" class="nav-logo">
             <img
-                src="/assets/images/benji-icon.svg"
+                src="{{ '/assets/images/benji-icon.svg' | relative_url }}"
                 alt="Daily Benji"
                 class="logo-icon"
             />
             <span class="logo-text">Daily Benji</span>
         </a>
 
-        <ul class="nav-links">
+        <!-- Mobile menu button -->
+        <button
+            class="mobile-menu-btn"
+            onclick="toggleMenu()"
+            aria-label="Menu"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation links -->
+        <ul class="nav-links" id="navLinks">
             <li><a href="/how-it-works">How it Works</a></li>
             <li><a href="/about">About Us</a></li>
             <li><a href="/help">Help</a></li>
+            <li class="mobile-only">
+                <a href="/get-started" class="nav-cta-mobile">Join Waitlist</a>
+            </li>
         </ul>
 
-        <a href="/get-started" class="nav-cta">Join Waitlist</a>
+        <!-- Desktop CTA button -->
+        <a href="/get-started" class="nav-cta desktop-only">Join Waitlist</a>
     </nav>
 </header>
+
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById("navLinks");
+        nav.classList.toggle("show");
+        document.querySelector(".mobile-menu-btn").classList.toggle("active");
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (event) {
+        const nav = document.getElementById("navLinks");
+        const btn = document.querySelector(".mobile-menu-btn");
+        if (
+            !nav.contains(event.target) &&
+            !btn.contains(event.target) &&
+            nav.classList.contains("show")
+        ) {
+            nav.classList.remove("show");
+            btn.classList.remove("active");
+        }
+    });
+</script>
