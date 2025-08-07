@@ -1192,3 +1192,22 @@ header {
         border-bottom: 1px solid var(--gray-100);
     }
 }
+/* ONLY apply on mobile - won't touch desktop at all */
+@media only screen and (max-width: 768px) {
+    .waitlist-section .waitlist-form input[type="email"] {
+        height: 48px !important;
+        max-height: 48px !important;
+        min-height: 48px !important;
+        font-size: 16px !important;
+    }
+
+    .waitlist-section .waitlist-form {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .waitlist-section .waitlist-form button {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+}
