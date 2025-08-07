@@ -1079,3 +1079,116 @@ header {
         font-size: 0.875rem;
     }
 }
+
+/* Mobile Menu - Add to style.css */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 1rem;
+    }
+
+    /* Hide desktop links on mobile */
+    .nav-links {
+        display: none;
+    }
+
+    /* Make logo and CTA visible */
+    .nav-logo {
+        font-size: 1.125rem;
+    }
+
+    .nav-cta {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Fix black sections on mobile */
+@media (max-width: 768px) {
+    /* Why we're email-only section */
+    .manifesto {
+        padding: 3rem 1rem; /* Reduce padding */
+    }
+
+    .manifesto-grid {
+        gap: 1.5rem; /* Smaller gap */
+    }
+
+    .manifesto-item {
+        margin-bottom: 0; /* Remove extra margin */
+    }
+
+    /* Waitlist section */
+    .waitlist-section {
+        padding: 3rem 1rem; /* Reduce padding */
+    }
+
+    /* Any black CTA sections */
+    .cta-section {
+        padding: 3rem 1rem; /* Reduce padding */
+    }
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--black);
+    transition: all 0.3s;
+}
+
+/* Hide/show elements */
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid var(--gray-200);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.75rem;
+        border-bottom: 1px solid var(--gray-100);
+    }
+}

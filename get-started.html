@@ -4,7 +4,6 @@ title: Join the Waitlist - Daily Benji
 ---
 
 <style>
-    /* Same styles as before */
     .waitlist-hero {
         text-align: center;
         padding: 4rem 0 2rem;
@@ -122,7 +121,80 @@ title: Join the Waitlist - Daily Benji
         }
     }
 
-    /* Rest of the styles... */
+    /* Benefits Section */
+    .waitlist-benefits {
+        max-width: 600px;
+        margin: 0 auto 3rem;
+    }
+
+    .benefit-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .benefit-icon {
+        font-size: 1.5rem;
+        flex-shrink: 0;
+    }
+
+    .benefit-content h3 {
+        font-size: 1.125rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .benefit-content p {
+        font-size: 0.875rem;
+        color: var(--gray-600);
+        margin: 0;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 3rem 0;
+    }
+
+    .faq-item {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+    .faq-item:last-child {
+        border-bottom: none;
+    }
+
+    .faq-question {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .faq-answer {
+        color: var(--gray-700);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .waitlist-hero {
+            padding: 2rem 1rem;
+        }
+
+        .waitlist-form {
+            padding: 1.5rem;
+            margin: 0 1rem 2rem;
+        }
+
+        .waitlist-hero h1 {
+            font-size: 1.75rem;
+        }
+
+        .waitlist-hero p {
+            font-size: 1rem;
+        }
+    }
 </style>
 
 <section class="waitlist-hero">
@@ -199,6 +271,78 @@ title: Join the Waitlist - Daily Benji
         </p>
     </div>
 </div>
+<section class="waitlist-benefits">
+    <h2>What happens next?</h2>
+
+    <div class="benefit-item">
+        <span class="benefit-icon">1️⃣</span>
+        <div class="benefit-content">
+            <h3>Confirmation Email</h3>
+            <p>
+                You'll get an email confirming your spot on the waitlist within
+                a few minutes.
+            </p>
+        </div>
+    </div>
+
+    <div class="benefit-item">
+        <span class="benefit-icon">2️⃣</span>
+        <div class="benefit-content">
+            <h3>Beta Invitation</h3>
+            <p>
+                When it's your turn, we'll send setup instructions and your
+                unique Daily Benji email address.
+            </p>
+        </div>
+    </div>
+
+    <div class="benefit-item">
+        <span class="benefit-icon">3️⃣</span>
+        <div class="benefit-content">
+            <h3>Free Beta Period</h3>
+            <p>
+                Help us perfect the service and lock in special pricing when we
+                launch.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="faq-section">
+    <h2>Quick Questions</h2>
+
+    <div class="faq-item">
+        <h3 class="faq-question">When will I get access?</h3>
+        <p class="faq-answer">
+            We're onboarding new users weekly. Most people get access within 2-3
+            weeks, but it depends on demand.
+        </p>
+    </div>
+
+    <div class="faq-item">
+        <h3 class="faq-question">How long is the beta free?</h3>
+        <p class="faq-answer">
+            At least 3 months from when you join. Beta users will also get a
+            significant discount when we launch.
+        </p>
+    </div>
+
+    <div class="faq-item">
+        <h3 class="faq-question">What if I need help setting up?</h3>
+        <p class="faq-answer">
+            We'll send detailed instructions for your specific banks, and our
+            support team is ready to help via email.
+        </p>
+    </div>
+
+    <div class="faq-item">
+        <h3 class="faq-question">Can I invite friends?</h3>
+        <p class="faq-answer">
+            Once you're in the beta, you'll get invitation codes to share with
+            friends who might benefit from Daily Benji.
+        </p>
+    </div>
+</section>
 
 <script>
     // Pre-fill email from URL query parameter
