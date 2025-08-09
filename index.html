@@ -14,9 +14,7 @@ title: The Daily Benji - Your spending, delivered daily. No app required.
             no updates, no logging in ever again.
         </p>
         <div class="hero-cta">
-            <a href="/get-started" class="btn btn-primary"
-                >Join the Waitlist</a
-            >
+            <a href="/get-started" class="btn btn-primary">Join the Waitlist</a>
             <span class="cta-note"
                 >Free during beta • No credit card needed</span
             >
@@ -32,129 +30,634 @@ title: The Daily Benji - Your spending, delivered daily. No app required.
                 </div>
                 <div class="browser-title">Inbox - The Daily Benji</div>
             </div>
-            <div class="email-preview">
-                <div class="email-header">
-                    <h1>THE DAILY BENJI</h1>
-                    <div class="email-date">
-                        Good morning! It's Wednesday, August 6
+            <div
+                class="email-preview"
+                style="
+                    font-family:
+                        -apple-system, BlinkMacSystemFont,
+                        &quot;SF Pro Display&quot;, &quot;Helvetica Neue&quot;,
+                        Arial, sans-serif;
+                    background: white;
+                    color: #1d1d1f;
+                "
+            >
+                <!-- Header -->
+                <div
+                    style="
+                        padding: 20px 20px 15px;
+                        border-bottom: 1px solid #f5f5f7;
+                    "
+                >
+                    <div
+                        style="
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                        "
+                    >
+                        <div
+                            style="
+                                font-size: 12px;
+                                font-weight: 600;
+                                color: #8e8e93;
+                                letter-spacing: 0.5px;
+                            "
+                        >
+                            THE DAILY BENJI
+                        </div>
+                        <div
+                            style="font-size: 12px; color: #8e8e93"
+                            id="email-delivered-date"
+                        >
+                            Delivered Today
+                        </div>
                     </div>
                 </div>
 
-                <!-- Headline Section -->
-                <div class="email-headline-section">
-                    <div class="email-headline">
-                        Your Tuesday Spending Report
+                <!-- Yesterday Banner -->
+                <div style="padding: 15px 20px; text-align: center">
+                    <span
+                        style="
+                            background-color: #f5f5f7;
+                            border-radius: 20px;
+                            padding: 6px 16px;
+                            display: inline-block;
+                        "
+                    >
+                        <span
+                            style="
+                                font-size: 12px;
+                                color: #8e8e93;
+                                font-weight: 500;
+                            "
+                            >Yesterday's Report</span
+                        >
+                        <span
+                            style="font-size: 12px; color: #6e6e73"
+                            id="email-yesterday-date"
+                        >
+                            • Yesterday</span
+                        >
+                    </span>
+                </div>
+
+                <!-- Main Amount -->
+                <div style="text-align: center; padding: 0 20px 25px">
+                    <div
+                        style="
+                            font-size: 48px;
+                            font-weight: 300;
+                            color: #1d1d1f;
+                            letter-spacing: -1px;
+                        "
+                    >
+                        $266
                     </div>
-                    <div class="email-headline-sub">
-                        Delivered Wednesday morning
+                    <div
+                        style="font-size: 15px; color: #6e6e73; margin-top: 5px"
+                    >
+                        7 transactions
                     </div>
                 </div>
 
                 <!-- Quick Stats -->
-                <div class="email-quick-stats">
-                    <div class="email-stat-item">
-                        <span class="email-stat-number">$156</span>
-                        <span class="email-stat-label">YESTERDAY</span>
-                    </div>
-                    <div class="email-stat-item">
-                        <span class="email-stat-number">5</span>
-                        <span class="email-stat-label">TRANSACTIONS</span>
-                    </div>
-                    <div class="email-stat-item">
-                        <span class="email-stat-number">2</span>
-                        <span class="email-stat-label">ACCOUNTS</span>
+                <div
+                    style="
+                        margin: 0 20px 25px;
+                        background: #f5f5f7;
+                        border-radius: 12px;
+                        padding: 16px;
+                    "
+                >
+                    <div style="display: flex; justify-content: space-around">
+                        <div style="text-align: center; flex: 1">
+                            <div
+                                style="
+                                    font-size: 18px;
+                                    font-weight: 500;
+                                    color: #1d1d1f;
+                                "
+                            >
+                                7
+                            </div>
+                            <div
+                                style="
+                                    font-size: 10px;
+                                    color: #8e8e93;
+                                    margin-top: 2px;
+                                "
+                            >
+                                purchases
+                            </div>
+                        </div>
+                        <div
+                            style="
+                                text-align: center;
+                                flex: 1;
+                                border-left: 1px solid #e5e5e7;
+                            "
+                        >
+                            <div
+                                style="
+                                    font-size: 18px;
+                                    font-weight: 500;
+                                    color: #1d1d1f;
+                                "
+                            >
+                                3
+                            </div>
+                            <div
+                                style="
+                                    font-size: 10px;
+                                    color: #8e8e93;
+                                    margin-top: 2px;
+                                "
+                            >
+                                cards
+                            </div>
+                        </div>
+                        <div
+                            style="
+                                text-align: center;
+                                flex: 1;
+                                border-left: 1px solid #e5e5e7;
+                            "
+                        >
+                            <div
+                                style="
+                                    font-size: 18px;
+                                    font-weight: 500;
+                                    color: #1d1d1f;
+                                "
+                            >
+                                $164
+                            </div>
+                            <div
+                                style="
+                                    font-size: 10px;
+                                    color: #8e8e93;
+                                    margin-top: 2px;
+                                "
+                            >
+                                daily avg
+                            </div>
+                        </div>
+                        <div
+                            style="
+                                text-align: center;
+                                flex: 1;
+                                border-left: 1px solid #e5e5e7;
+                            "
+                        >
+                            <div
+                                style="
+                                    font-size: 18px;
+                                    font-weight: 500;
+                                    color: #1d1d1f;
+                                "
+                            >
+                                $4,920
+                            </div>
+                            <div
+                                style="
+                                    font-size: 10px;
+                                    color: #8e8e93;
+                                    margin-top: 2px;
+                                "
+                            >
+                                30 days
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="email-content">
-                    <!-- Yesterday's Activity -->
-                    <h3 class="email-section-header">Yesterday's Activity</h3>
+                <!-- Key Insights -->
+                <div style="margin: 0 20px 25px">
+                    <div
+                        style="
+                            font-size: 12px;
+                            font-weight: 600;
+                            color: #007aff;
+                            letter-spacing: 0.5px;
+                            margin-bottom: 12px;
+                        "
+                    >
+                        KEY INSIGHTS FROM YESTERDAY
+                    </div>
 
-                    <div class="email-account-block">
-                        <div class="email-account-header">
-                            <div class="email-account-info">
-                                Chase • Personal
+                    <div
+                        style="
+                            background: #f9f9fb;
+                            border-radius: 12px;
+                            border-left: 3px solid #34c759;
+                            padding: 14px;
+                        "
+                    >
+                        <div style="padding-left: 14px">
+                            <div
+                                style="
+                                    font-size: 11px;
+                                    font-weight: 600;
+                                    color: #8e8e93;
+                                    margin-bottom: 3px;
+                                "
+                            >
+                                SPENDING PACE
                             </div>
-                            <div class="email-account-total">$98.47</div>
+                            <div
+                                style="
+                                    font-size: 14px;
+                                    color: #1d1d1f;
+                                    font-weight: 500;
+                                    margin-bottom: 3px;
+                                "
+                            >
+                                Yesterday was 62% above your daily average
+                            </div>
+                            <div style="font-size: 12px; color: #6e6e73">
+                                You spent $102 more than your typical $164/day
+                            </div>
                         </div>
-                        <div class="email-transaction-list">
-                            <div class="email-transaction-item">
-                                <span class="email-merchant-name"
+                    </div>
+
+                    <div
+                        style="
+                            background: #f9f9fb;
+                            border-radius: 12px;
+                            border-left: 3px solid #8e8e93;
+                            padding: 14px;
+                            margin-top: 10px;
+                        "
+                    >
+                        <div style="padding-left: 14px">
+                            <div
+                                style="
+                                    font-size: 11px;
+                                    font-weight: 600;
+                                    color: #8e8e93;
+                                    margin-bottom: 3px;
+                                "
+                            >
+                                LARGEST PURCHASE
+                            </div>
+                            <div
+                                style="
+                                    font-size: 14px;
+                                    color: #1d1d1f;
+                                    font-weight: 500;
+                                    margin-bottom: 3px;
+                                "
+                            >
+                                $89.47 at Whole Foods
+                            </div>
+                            <div style="font-size: 12px; color: #6e6e73">
+                                This was 34% of yesterday's total
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        style="
+                            background: #f9f9fb;
+                            border-radius: 12px;
+                            border-left: 3px solid #ff9500;
+                            padding: 14px;
+                            margin-top: 10px;
+                        "
+                    >
+                        <div style="padding-left: 14px">
+                            <div
+                                style="
+                                    font-size: 11px;
+                                    font-weight: 600;
+                                    color: #8e8e93;
+                                    margin-bottom: 3px;
+                                "
+                            >
+                                SUBSCRIPTION COMING
+                            </div>
+                            <div
+                                style="
+                                    font-size: 14px;
+                                    color: #1d1d1f;
+                                    font-weight: 500;
+                                    margin-bottom: 3px;
+                                "
+                            >
+                                Expect ~$11 from Spotify tomorrow
+                            </div>
+                            <div style="font-size: 12px; color: #6e6e73">
+                                Monthly subscription renewal
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yesterday's Activity -->
+                <div style="margin: 0 20px 25px">
+                    <div
+                        style="
+                            font-size: 12px;
+                            font-weight: 600;
+                            color: #007aff;
+                            letter-spacing: 0.5px;
+                            margin-bottom: 12px;
+                        "
+                    >
+                        YESTERDAY'S ACTIVITY
+                    </div>
+
+                    <!-- Account 1 -->
+                    <div style="margin-bottom: 15px">
+                        <div
+                            style="
+                                display: flex;
+                                justify-content: space-between;
+                                margin-bottom: 10px;
+                            "
+                        >
+                            <div>
+                                <div
+                                    style="
+                                        font-size: 14px;
+                                        font-weight: 600;
+                                        color: #1d1d1f;
+                                    "
+                                >
+                                    Chase Sapphire
+                                </div>
+                                <div style="font-size: 12px; color: #8e8e93">
+                                    Main
+                                </div>
+                            </div>
+                            <div
+                                style="
+                                    font-size: 15px;
+                                    font-weight: 500;
+                                    color: #1d1d1f;
+                                "
+                            >
+                                $132.89
+                            </div>
+                        </div>
+                        <div style="padding-left: 12px">
+                            <div
+                                style="
+                                    display: flex;
+                                    justify-content: space-between;
+                                    padding: 3px 0;
+                                "
+                            >
+                                <span style="font-size: 13px; color: #3c3c43"
                                     >Whole Foods</span
                                 >
-                                <span class="email-transaction-amount"
-                                    >$67.82</span
+                                <span style="font-size: 13px; color: #1d1d1f"
+                                    >$89.47</span
                                 >
                             </div>
-                            <div class="email-transaction-item">
-                                <span class="email-merchant-name"
-                                    >Shell Gas Station</span
+                            <div
+                                style="
+                                    display: flex;
+                                    justify-content: space-between;
+                                    padding: 3px 0;
+                                "
+                            >
+                                <span style="font-size: 13px; color: #3c3c43"
+                                    >Uber</span
                                 >
-                                <span class="email-transaction-amount"
-                                    >$45.20</span
+                                <span style="font-size: 13px; color: #1d1d1f"
+                                    >$23.45</span
                                 >
                             </div>
-                            <div class="email-transaction-item">
-                                <span class="email-merchant-name">Netflix</span>
-                                <span class="email-transaction-amount"
-                                    >$15.49</span
+                            <div
+                                style="
+                                    display: flex;
+                                    justify-content: space-between;
+                                    padding: 3px 0;
+                                "
+                            >
+                                <span style="font-size: 13px; color: #3c3c43"
+                                    >CVS Pharmacy</span
+                                >
+                                <span style="font-size: 13px; color: #1d1d1f"
+                                    >$18.47</span
+                                >
+                            </div>
+                            <div
+                                style="
+                                    display: flex;
+                                    justify-content: space-between;
+                                    padding: 3px 0;
+                                "
+                            >
+                                <span style="font-size: 13px; color: #3c3c43"
+                                    >NYC Transit</span
+                                >
+                                <span style="font-size: 13px; color: #1d1d1f"
+                                    >$2.90</span
                                 >
                             </div>
                         </div>
                     </div>
 
-                    <div class="email-account-block">
-                        <div class="email-account-header">
-                            <div class="email-account-info">
-                                Amex Gold • Dining
+                    <!-- Account 2 -->
+                    <div
+                        style="border-top: 1px solid #f0f0f0; padding-top: 15px"
+                    >
+                        <div
+                            style="
+                                display: flex;
+                                justify-content: space-between;
+                                margin-bottom: 10px;
+                            "
+                        >
+                            <div>
+                                <div
+                                    style="
+                                        font-size: 14px;
+                                        font-weight: 600;
+                                        color: #1d1d1f;
+                                    "
+                                >
+                                    Amex Gold
+                                </div>
+                                <div style="font-size: 12px; color: #8e8e93">
+                                    Restaurant
+                                </div>
                             </div>
-                            <div class="email-account-total">$57.95</div>
+                            <div
+                                style="
+                                    font-size: 15px;
+                                    font-weight: 500;
+                                    color: #1d1d1f;
+                                "
+                            >
+                                $86.35
+                            </div>
                         </div>
-                        <div class="email-transaction-list">
-                            <div class="email-transaction-item">
-                                <span class="email-merchant-name"
-                                    >Chipotle</span
+                        <div style="padding-left: 12px">
+                            <div
+                                style="
+                                    display: flex;
+                                    justify-content: space-between;
+                                    padding: 3px 0;
+                                "
+                            >
+                                <span style="font-size: 13px; color: #3c3c43"
+                                    >Joe's Pizza</span
                                 >
-                                <span class="email-transaction-amount"
-                                    >$14.75</span
+                                <span style="font-size: 13px; color: #1d1d1f"
+                                    >$38.50</span
                                 >
                             </div>
-                            <div class="email-transaction-item">
-                                <span class="email-merchant-name">Amazon</span>
-                                <span class="email-transaction-amount"
-                                    >$43.20</span
+                            <div
+                                style="
+                                    display: flex;
+                                    justify-content: space-between;
+                                    padding: 3px 0;
+                                "
+                            >
+                                <span style="font-size: 13px; color: #3c3c43"
+                                    >The Smith</span
+                                >
+                                <span style="font-size: 13px; color: #1d1d1f"
+                                    >$47.85</span
                                 >
                             </div>
                         </div>
                     </div>
 
-                    <!-- The Brief -->
-                    <h3 class="email-section-header">The Brief</h3>
-                    <div class="email-brief-section">
-                        <div class="email-brief-item">
-                            <span class="email-brief-emoji">💡</span>
-                            <div class="email-brief-content">
-                                <strong>Spending Pace:</strong> At this rate,
-                                you'll hit $780 this week (last week: $612)
+                    <!-- Account 3 -->
+                    <div
+                        style="border-top: 1px solid #f0f0f0; padding-top: 15px"
+                    >
+                        <div
+                            style="
+                                display: flex;
+                                justify-content: space-between;
+                                margin-bottom: 10px;
+                            "
+                        >
+                            <div>
+                                <div
+                                    style="
+                                        font-size: 14px;
+                                        font-weight: 600;
+                                        color: #1d1d1f;
+                                    "
+                                >
+                                    Bank of America
+                                </div>
+                                <div style="font-size: 12px; color: #8e8e93">
+                                    Checking
+                                </div>
+                            </div>
+                            <div
+                                style="
+                                    font-size: 15px;
+                                    font-weight: 500;
+                                    color: #1d1d1f;
+                                "
+                            >
+                                $46.80
                             </div>
                         </div>
-                        <div class="email-brief-item">
-                            <span class="email-brief-emoji">🔔</span>
-                            <div class="email-brief-content">
-                                <strong>Netflix Alert:</strong> Monthly
-                                subscription posted today
+                        <div style="padding-left: 12px">
+                            <div
+                                style="
+                                    display: flex;
+                                    justify-content: space-between;
+                                    padding: 3px 0;
+                                "
+                            >
+                                <span style="font-size: 13px; color: #3c3c43"
+                                    >Shell Gas</span
+                                >
+                                <span style="font-size: 13px; color: #1d1d1f"
+                                    >$46.80</span
+                                >
                             </div>
                         </div>
-                        <div class="email-brief-item">
-                            <span class="email-brief-emoji">📊</span>
-                            <div class="email-brief-content">
-                                <strong>Tuesday Pattern:</strong> You typically
-                                spend 20% more on Tuesdays
-                            </div>
-                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily Tip -->
+                <div
+                    style="
+                        margin: 20px;
+                        background: linear-gradient(
+                            135deg,
+                            #007aff 0%,
+                            #5856d6 100%
+                        );
+                        border-radius: 12px;
+                        padding: 16px;
+                        text-align: center;
+                    "
+                >
+                    <div
+                        style="font-size: 13px; color: white"
+                        id="email-daily-tip"
+                    >
+                        💡 Small daily habits compound. Cutting one $5 coffee
+                        saves $150/month.
                     </div>
                 </div>
             </div>
+
+            <!-- JavaScript to update dates and daily tip -->
+            <script>
+                // Update dates dynamically
+                const today = new Date();
+                const yesterday = new Date(today);
+                yesterday.setDate(yesterday.getDate() - 1);
+
+                const days = [
+                    "Sunday",
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                ];
+                const months = [
+                    "Jan",
+                    "Feb",
+                    "Mar",
+                    "Apr",
+                    "May",
+                    "Jun",
+                    "Jul",
+                    "Aug",
+                    "Sep",
+                    "Oct",
+                    "Nov",
+                    "Dec",
+                ];
+
+                // Update delivered date
+                document.getElementById("email-delivered-date").textContent =
+                    `Delivered ${days[today.getDay()].substr(0, 3)} ${months[today.getMonth()]} ${today.getDate()}`;
+
+                // Update yesterday date
+                document.getElementById("email-yesterday-date").textContent =
+                    ` • ${months[yesterday.getMonth()]} ${yesterday.getDate()}`;
+
+                // Daily tips that rotate based on day of week
+                const dailyTips = [
+                    "💡 Sunday planning: Review last week's spending and set this week's intentions.",
+                    "💡 Monday motivation: Starting the week aware of spending helps you stay on track.",
+                    "💡 Tuesday tip: Mid-week expenses add up. Are you on pace for your goals?",
+                    "💡 Wednesday wisdom: You're halfway through the week - how's your budget looking?",
+                    "💡 Thursday thought: Weekend's coming. Plan fun that fits your budget.",
+                    "💡 Friday feeling: Before the weekend, check what you've already spent.",
+                    "💡 Weekend watch: Keep an eye on those impulse purchases today.",
+                ];
+
+                document.getElementById("email-daily-tip").innerHTML =
+                    dailyTips[today.getDay()];
+            </script>
         </div>
     </div>
 </section>
@@ -376,7 +879,12 @@ title: The Daily Benji - Your spending, delivered daily. No app required.
         </p>
 
         <form class="waitlist-form" action="/get-started" method="get">
-            <input type="email" name="email" placeholder="your@email.com" required />
+            <input
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+            />
             <button type="submit">Get Early Access</button>
         </form>
 
