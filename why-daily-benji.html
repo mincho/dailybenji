@@ -81,55 +81,28 @@ title: Why Daily Benji - Daily Benji
         margin-bottom: 1rem;
     }
 
-    .features-grid {
+    .features-list {
         display: grid;
-        gap: 3rem;
+        gap: 2.5rem;
+        max-width: 700px;
+        margin: 0 auto;
     }
 
-    .feature-row {
+    .feature-item {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        align-items: center;
-    }
-
-    .feature-row.reverse {
-        direction: rtl;
-    }
-
-    .feature-row.reverse .feature-content {
-        direction: ltr;
-    }
-
-    .feature-visual {
-        background: var(--gray-100);
-        padding: 3rem;
-        border-radius: 12px;
-        text-align: center;
-        height: 250px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .feature-icon {
-        font-size: 4rem;
+        gap: 1rem;
     }
 
     .feature-content h3 {
         font-size: 1.5rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.75rem;
+        color: var(--black);
     }
 
     .feature-content p {
         color: var(--gray-700);
-        line-height: 1.6;
-        margin-bottom: 1rem;
-    }
-
-    .feature-highlight {
-        font-weight: 600;
-        color: var(--black);
+        line-height: 1.7;
+        font-size: 1.0625rem;
     }
 
     /* Anti-App Section */
@@ -243,14 +216,20 @@ title: Why Daily Benji - Daily Benji
     }
 
     @media (max-width: 768px) {
-        .feature-row,
-        .feature-row.reverse {
-            grid-template-columns: 1fr;
-            direction: ltr;
+        .solution-section {
+            margin: 3rem auto;
         }
 
-        .feature-visual {
-            height: 200px;
+        .features-list {
+            gap: 2rem;
+        }
+
+        .feature-content h3 {
+            font-size: 1.25rem;
+        }
+
+        .feature-content p {
+            font-size: 1rem;
         }
 
         .comparison-grid {
@@ -279,7 +258,7 @@ title: Why Daily Benji - Daily Benji
 
         <div class="problems-grid">
             <div class="problem-item">
-                <h3>🔐 They Want Your Password</h3>
+                <h3>They Want Your Password</h3>
                 <p>
                     Most apps require direct access to your bank accounts.
                     That's your entire financial life in someone else's hands.
@@ -287,7 +266,7 @@ title: Why Daily Benji - Daily Benji
             </div>
 
             <div class="problem-item">
-                <h3>📊 Overwhelming Complexity</h3>
+                <h3>Overwhelming Complexity</h3>
                 <p>
                     Charts, graphs, categories, budgets, goals... When did
                     tracking spending become a part-time job?
@@ -295,7 +274,7 @@ title: Why Daily Benji - Daily Benji
             </div>
 
             <div class="problem-item">
-                <h3>👁️ You're the Product</h3>
+                <h3>You're the Product</h3>
                 <p>
                     Free apps make money somehow. Usually by analyzing and
                     selling insights about your spending habits.
@@ -303,7 +282,7 @@ title: Why Daily Benji - Daily Benji
             </div>
 
             <div class="problem-item">
-                <h3>📱 Another App to Check</h3>
+                <h3>Another App to Check</h3>
                 <p>
                     Because what we all need is one more app notification
                     competing for our attention, right?
@@ -325,7 +304,6 @@ title: Why Daily Benji - Daily Benji
     <div class="features-list">
         <div class="feature-item">
             <div class="feature-content">
-                <span class="feature-emoji">📧</span>
                 <h3>Email-First</h3>
                 <p>
                     No app to download. Just a daily email in your inbox with
@@ -336,7 +314,6 @@ title: Why Daily Benji - Daily Benji
 
         <div class="feature-item">
             <div class="feature-content">
-                <span class="feature-emoji">🔒</span>
                 <h3>True Privacy</h3>
                 <p>
                     Never share your bank password. Just forward transaction
@@ -347,7 +324,6 @@ title: Why Daily Benji - Daily Benji
 
         <div class="feature-item">
             <div class="feature-content">
-                <span class="feature-emoji">✨</span>
                 <h3>Zero Friction</h3>
                 <p>
                     15-minute setup, then done. No budgets, categories, or
