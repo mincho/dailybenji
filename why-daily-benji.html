@@ -1,0 +1,426 @@
+---
+layout: default
+title: Why Daily Benji - Daily Benji
+---
+
+<style>
+    /* Why Daily Benji Styles */
+    .why-hero {
+        text-align: center;
+        padding: 4rem 0 3rem;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .why-hero h1 {
+        margin-bottom: 1rem;
+    }
+
+    .why-hero p {
+        font-size: 1.125rem;
+        color: var(--gray-600);
+    }
+
+    /* Problem Section */
+    .problem-section {
+        background: var(--gray-50);
+        padding: 3rem 2rem;
+        margin: 2rem 0 3rem;
+    }
+
+    .problem-container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .problem-container h2 {
+        margin-bottom: 2rem;
+    }
+
+    .problems-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        text-align: left;
+        margin-top: 2rem;
+    }
+
+    .problem-item {
+        padding: 1.5rem;
+        background: white;
+        border-radius: 8px;
+        border: 1px solid var(--gray-200);
+    }
+
+    .problem-item h3 {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+        color: var(--black);
+    }
+
+    .problem-item p {
+        color: var(--gray-600);
+        font-size: 0.875rem;
+        line-height: 1.6;
+    }
+
+    /* Solution Section */
+    .solution-section {
+        max-width: 1000px;
+        margin: 4rem auto;
+        padding: 0 2rem;
+    }
+
+    .solution-intro {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .solution-intro h2 {
+        margin-bottom: 1rem;
+    }
+
+    .features-list {
+        display: grid;
+        gap: 2.5rem;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .feature-item {
+        display: grid;
+        gap: 1rem;
+    }
+
+    .feature-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+        color: var(--black);
+    }
+
+    .feature-content p {
+        color: var(--gray-700);
+        line-height: 1.7;
+        font-size: 1.0625rem;
+    }
+
+    /* Anti-App Section */
+    .anti-app-section {
+        background: var(--black);
+        color: white;
+        padding: 4rem 2rem;
+        margin: 4rem 0;
+        text-align: center;
+    }
+
+    .anti-app-content {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .anti-app-content h2 {
+        color: white;
+        margin-bottom: 1.5rem;
+    }
+
+    .anti-app-content p {
+        font-size: 1.125rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        color: rgba(255, 255, 255, 0.95);
+    }
+
+    /* Comparison Section */
+    .comparison-section {
+        max-width: 800px;
+        margin: 4rem auto;
+        padding: 0 2rem;
+    }
+
+    .comparison-section h2 {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .comparison-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .comparison-column h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid var(--gray-200);
+    }
+
+    .comparison-column.other-apps h3 {
+        color: var(--gray-600);
+    }
+
+    .comparison-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+    }
+
+    .comparison-icon {
+        margin-right: 0.75rem;
+        font-size: 1.25rem;
+        margin-top: 0.125rem;
+    }
+
+    .comparison-text {
+        line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        background: var(--gray-50);
+        padding: 4rem 2rem;
+        text-align: center;
+        margin-top: 4rem;
+    }
+
+    .cta-content {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .cta-content h2 {
+        margin-bottom: 1rem;
+    }
+
+    .cta-content p {
+        color: var(--gray-700);
+        margin-bottom: 2rem;
+        font-size: 1.125rem;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: var(--black);
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: all 0.2s;
+    }
+
+    .cta-button:hover {
+        background: var(--gray-800);
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+        .solution-section {
+            margin: 3rem auto;
+        }
+
+        .features-list {
+            gap: 2rem;
+        }
+
+        .feature-content h3 {
+            font-size: 1.25rem;
+        }
+
+        .feature-content p {
+            font-size: 1rem;
+        }
+
+        .comparison-grid {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .problems-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<section class="why-hero">
+    <h1>Why Daily Benji?</h1>
+    <p>Because tracking your spending shouldn't feel like a second job</p>
+</section>
+
+<section class="problem-section">
+    <div class="problem-container">
+        <h2>The Problem with Other Apps</h2>
+        <p>
+            We've all been there. You download a budgeting app with the best
+            intentions, and then...
+        </p>
+
+        <div class="problems-grid">
+            <div class="problem-item">
+                <h3>They Want Your Password</h3>
+                <p>
+                    Most apps require direct access to your bank accounts.
+                    That's your entire financial life in someone else's hands.
+                </p>
+            </div>
+
+            <div class="problem-item">
+                <h3>Overwhelming Complexity</h3>
+                <p>
+                    Charts, graphs, categories, budgets, goals... When did
+                    tracking spending become a part-time job?
+                </p>
+            </div>
+
+            <div class="problem-item">
+                <h3>You're the Product</h3>
+                <p>
+                    Free apps make money somehow. Usually by analyzing and
+                    selling insights about your spending habits.
+                </p>
+            </div>
+
+            <div class="problem-item">
+                <h3>Another App to Check</h3>
+                <p>
+                    Because what we all need is one more app notification
+                    competing for our attention, right?
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="solution-section">
+    <div class="solution-intro">
+        <h2>A Different Approach</h2>
+        <p>
+            Daily Benji is the anti-app. Simple, private, and actually fits into
+            your life.
+        </p>
+    </div>
+
+    <div class="features-list">
+        <div class="feature-item">
+            <div class="feature-content">
+                <h3>Email-First</h3>
+                <p>
+                    No app to download. Just a daily email in your inbox with
+                    everything you need to know.
+                </p>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-content">
+                <h3>True Privacy</h3>
+                <p>
+                    Never share your bank password. Just forward transaction
+                    emails. Your data stays yours.
+                </p>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-content">
+                <h3>Zero Friction</h3>
+                <p>
+                    15-minute setup, then done. No budgets, categories, or
+                    maintenance. Just awareness.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="anti-app-section">
+    <div class="anti-app-content">
+        <h2>The Anti-App Philosophy</h2>
+        <p>We believe the best app is the one you don't have to open.</p>
+        <p>
+            While others are building increasingly complex features, we're
+            building something that respects your time, privacy, and
+            intelligence.
+        </p>
+        <p>
+            Because spending awareness shouldn't be another chore on your to-do
+            list.
+        </p>
+    </div>
+</section>
+
+<section class="comparison-section">
+    <h2>See the Difference</h2>
+
+    <div class="comparison-grid">
+        <div class="comparison-column other-apps">
+            <h3>Other Apps</h3>
+
+            <div class="comparison-item">
+                <span class="comparison-icon">❌</span>
+                <span class="comparison-text">Require bank passwords</span>
+            </div>
+
+            <div class="comparison-item">
+                <span class="comparison-icon">❌</span>
+                <span class="comparison-text">Complex setup & maintenance</span>
+            </div>
+
+            <div class="comparison-item">
+                <span class="comparison-icon">❌</span>
+                <span class="comparison-text">Sell your data or show ads</span>
+            </div>
+
+            <div class="comparison-item">
+                <span class="comparison-icon">❌</span>
+                <span class="comparison-text">Another app to check daily</span>
+            </div>
+
+            <div class="comparison-item">
+                <span class="comparison-icon">❌</span>
+                <span class="comparison-text">Overwhelming features</span>
+            </div>
+        </div>
+
+        <div class="comparison-column daily-benji">
+            <h3>Daily Benji</h3>
+
+            <div class="comparison-item">
+                <span class="comparison-icon">✅</span>
+                <span class="comparison-text">No passwords needed</span>
+            </div>
+
+            <div class="comparison-item">
+                <span class="comparison-icon">✅</span>
+                <span class="comparison-text">15-minute setup, then done</span>
+            </div>
+
+            <div class="comparison-item">
+                <span class="comparison-icon">✅</span>
+                <span class="comparison-text">You pay us, we protect you</span>
+            </div>
+
+            <div class="comparison-item">
+                <span class="comparison-icon">✅</span>
+                <span class="comparison-text">Arrives in your inbox</span>
+            </div>
+
+            <div class="comparison-item">
+                <span class="comparison-icon">✅</span>
+                <span class="comparison-text">Just what you need</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="cta-content">
+        <h2>Ready for Something Different?</h2>
+        <p>
+            Join thousands who've discovered that tracking spending doesn't have
+            to be complicated.
+        </p>
+        <a href="/#waitlist" class="cta-button">Join the Waitlist</a>
+    </div>
+</section>
