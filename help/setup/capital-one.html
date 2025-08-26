@@ -1,0 +1,230 @@
+---
+layout: default
+title: Capital One Transaction Alerts Setup - Daily Benji
+---
+
+<style>
+    .guide-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        padding: 0.75rem 1rem;
+        background: var(--gray-100);
+        color: var(--black);
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+
+    .back-button:hover {
+        background: var(--gray-200);
+        color: var(--black);
+        text-decoration: none;
+    }
+
+    .guide-header {
+        margin-bottom: 3rem;
+    }
+
+    .guide-header h1 {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--black);
+    }
+
+    .guide-header .subtitle {
+        font-size: 1.125rem;
+        color: var(--gray-600);
+        line-height: 1.5;
+    }
+
+    .method-section {
+        margin-bottom: 3rem;
+    }
+
+    .method-section h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: var(--black);
+    }
+
+    .step-list {
+        list-style: none;
+        padding: 0;
+        counter-reset: step-counter;
+    }
+
+    .step-list li {
+        counter-increment: step-counter;
+        margin-bottom: 1.25rem;
+        padding-left: 2.5rem;
+        position: relative;
+        line-height: 1.6;
+        color: var(--gray-700);
+    }
+
+    .step-list li::before {
+        content: counter(step-counter);
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: var(--black);
+        color: white;
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 0.875rem;
+    }
+
+    .step-list li strong {
+        color: var(--black);
+        font-weight: 600;
+    }
+
+    .important-note {
+        background: var(--gray-50);
+        border-left: 4px solid var(--black);
+        padding: 1.5rem;
+        margin: 2rem 0;
+        border-radius: 0 6px 6px 0;
+    }
+
+    .important-note h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--black);
+        margin: 0 0 0.5rem 0;
+    }
+
+    .important-note p {
+        color: var(--gray-700);
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    .next-step {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--gray-200);
+    }
+
+    .next-step h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--black);
+    }
+
+    .next-step p {
+        color: var(--gray-600);
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+
+    .next-step a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: var(--black);
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+
+    .next-step a:hover {
+        background: #333;
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+        .guide-container {
+            padding: 1rem;
+        }
+
+        .guide-header h1 {
+            font-size: 1.75rem;
+        }
+
+        .step-list li {
+            padding-left: 2.25rem;
+        }
+
+        .step-list li::before {
+            width: 1.5rem;
+            height: 1.5rem;
+            font-size: 0.75rem;
+        }
+    }
+</style>
+
+<div class="guide-container">
+    <a href="/setup" class="back-button">&larr; Back to Setup Guides</a>
+
+    <div class="guide-header">
+        <h1>Capital One Setup</h1>
+        <p class="subtitle">
+            Enable transaction alerts so Daily Benji can track your spending
+        </p>
+    </div>
+
+    <div class="method-section">
+        <h2>Using the Capital One Mobile App (Recommended)</h2>
+        <ol class="step-list">
+            <li><strong>Log in</strong> to the Capital One mobile app.</li>
+            <li>Tap on your <strong>profile icon</strong>.</li>
+            <li>Navigate to the <strong>"Alerts & Notifications"</strong> section.</li>
+            <li>Select the credit card account for which you want to set up alerts.</li>
+            <li>Look for an option like <strong>"Instant Purchase Notification"</strong>.</li>
+            <li>Set the threshold to $0 to be alerted for all transactions.</li>
+            <li>Choose your preferred method of receiving these alerts to be <strong>Email</strong>.</li>
+            <li>Save your new settings.</li>
+        </ol>
+    </div>
+
+    <div class="method-section">
+        <h2>Using the Capital One Website</h2>
+        <ol class="step-list">
+            <li><strong>Sign in</strong> to your account on the Capital One website.</li>
+            <li>Find the <strong>"Alerts"</strong> or <strong>"Account Settings"</strong> section.</li>
+            <li>Choose the credit card account you want to manage.</li>
+            <li>Select the types of alerts you would like to enable, ensuring you select transaction alerts.</li>
+            <li>Customize your preferences to receive alerts for all transactions and save the changes. Make sure <strong>Email</strong> is selected as the delivery method.</li>
+        </ol>
+    </div>
+
+    <div class="important-note">
+        <h3>Important</h3>
+        <p>
+            For Daily Benji to work, you must select <strong>Email</strong> as
+            the delivery method for your transaction alerts.
+        </p>
+    </div>
+
+    <div class="next-step">
+        <h3>Next: Set Up Email Forwarding</h3>
+        <p>
+            Once you've enabled Capital One alerts, you'll need to forward
+            them to your Daily Benji inbox.
+        </p>
+        <a href="/help/setup/gmail-forwarding">Set Up Gmail Forwarding →</a>
+    </div>
+</div>
