@@ -1,0 +1,516 @@
+---
+layout: default
+title: iCloud Email Forwarding Setup
+parent: Setup
+nav_order: 12
+---
+
+<style>
+    .guide-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        padding: 0.75rem 1rem;
+        background: var(--gray-100);
+        color: var(--black);
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+
+    .back-button:hover {
+        background: var(--gray-200);
+        color: var(--black);
+        text-decoration: none;
+    }
+
+    .guide-header {
+        margin-bottom: 3rem;
+    }
+
+    .guide-header h1 {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--black);
+    }
+
+    .guide-header .subtitle {
+        font-size: 1.125rem;
+        color: var(--gray-600);
+        line-height: 1.5;
+    }
+
+    .method-section {
+        margin-bottom: 3rem;
+    }
+
+    .method-section h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: var(--black);
+    }
+
+    .step-list {
+        list-style: none;
+        padding: 0;
+        counter-reset: step-counter;
+    }
+
+    .step-list li {
+        counter-increment: step-counter;
+        margin-bottom: 1.25rem;
+        padding-left: 2.5rem;
+        position: relative;
+        line-height: 1.6;
+        color: var(--gray-700);
+    }
+
+    .step-list li::before {
+        content: counter(step-counter);
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: var(--black);
+        color: white;
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 0.875rem;
+    }
+
+    .step-list li strong {
+        color: var(--black);
+        font-weight: 600;
+    }
+
+    .important-note {
+        background: var(--gray-50);
+        border-left: 4px solid var(--black);
+        padding: 1.5rem;
+        margin: 2rem 0;
+        border-radius: 0 6px 6px 0;
+    }
+
+    .important-note h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--black);
+        margin: 0 0 0.5rem 0;
+    }
+
+    .important-note p {
+        color: var(--gray-700);
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    .next-step {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--gray-200);
+    }
+
+    .next-step h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--black);
+    }
+
+    .next-step p {
+        color: var(--gray-600);
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+
+    .next-step a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: var(--black);
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+
+    .next-step a:hover {
+        background: #333;
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+        .guide-container {
+            padding: 1rem;
+        }
+
+        .guide-header h1 {
+            font-size: 1.75rem;
+        }
+
+        .step-list li {
+            padding-left: 2.25rem;
+        }
+
+        .step-list li::before {
+            width: 1.5rem;
+            height: 1.5rem;
+            font-size: 0.75rem;
+        }
+    }
+
+    .bank-card-grid {
+        display: grid;
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(120px, 1fr)
+        ); /* Adjust minmax as needed */
+        gap: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .bank-card {
+        background: var(--gray-50);
+        border: 2px solid var(--gray-100);
+        border-radius: 8px;
+        padding: 1rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-weight: 600;
+        color: var(--black);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 60px;
+    }
+
+    .bank-card:hover {
+        background: #eff6ff;
+        border-color: #2563eb;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    }
+
+    .bank-card.selected {
+        background: var(--accent-light);
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+    }
+</style>
+
+<div class="guide-container">
+    <a href="/setup" class="back-button">&larr; Back to Setup Guides</a>
+
+    <div class="guide-header">
+        <h1>iCloud Email Forwarding Setup</h1>
+        <p class="subtitle">
+            Set up automatic forwarding from your iCloud email account to your
+            Daily Benji inbox.
+        </p>
+    </div>
+
+    <div class="method-section">
+        <h2>For iCloud Email</h2>
+        <ol class="step-list">
+            <li>
+                Go to
+                <a href="https://www.icloud.com/mail" target="_blank"
+                    >icloud.com/mail</a
+                >
+                in your web browser and sign in
+            </li>
+            <li>Click the gear icon at the top of the Mailboxes list</li>
+            <li>Choose "<strong>Settings</strong>" from the dropdown menu</li>
+            <li>Click "<strong>Rules</strong>" in the settings menu</li>
+            <li>Click "<strong>Add a Rule</strong>"</li>
+            <li>Name your rule (e.g., "Forward Bank Alerts")</li>
+            <li>
+                <div
+                    style="
+                        margin-top: 1rem;
+                        margin-bottom: 1rem;
+                        padding: 1rem;
+                        background: var(--gray-50);
+                        border-radius: 6px;
+                        border: 1px solid var(--gray-200);
+                    "
+                >
+                    <p style="margin-bottom: 0.5rem; color: var(--gray-700)">
+                        Select your bank(s) to generate filter strings:
+                    </p>
+                    <div class="bank-card-grid">
+                        <div
+                            class="bank-card"
+                            data-email="americanexpress@welcome.americanexpress.com"
+                            data-keyword="Large Purchase"
+                            onclick="toggleBankSelection(this)"
+                        >
+                            American Express
+                        </div>
+                        <div
+                            class="bank-card"
+                            data-email="capitalone@notification.capitalone.com"
+                            data-keyword="transaction"
+                            onclick="toggleBankSelection(this)"
+                        >
+                            Capital One
+                        </div>
+                        <div
+                            class="bank-card"
+                            data-email="no.reply.alerts@chase.com"
+                            data-keyword="transaction"
+                            onclick="toggleBankSelection(this)"
+                        >
+                            Chase
+                        </div>
+                        <div
+                            class="bank-card"
+                            data-email="alerts@services.barclaysus.com"
+                            data-keyword="transaction OR purchase"
+                            onclick="toggleBankSelection(this)"
+                        >
+                            Barclays
+                        </div>
+                        <div
+                            class="bank-card"
+                            data-email="alerts@email.citi.com"
+                            data-keyword="transaction"
+                            onclick="toggleBankSelection(this)"
+                        >
+                            Citi
+                        </div>
+                        <div
+                            class="bank-card"
+                            data-email="discover@email.discover.com"
+                            data-keyword="transaction"
+                            onclick="toggleBankSelection(this)"
+                        >
+                            Discover
+                        </div>
+                        <div
+                            class="bank-card"
+                            data-email="alerts@email.usaa.com"
+                            data-keyword="transaction"
+                            onclick="toggleBankSelection(this)"
+                        >
+                            USAA
+                        </div>
+                    </div>
+                    <p
+                        style="
+                            margin-top: 1.5rem;
+                            margin-bottom: 0.5rem;
+                            color: var(--gray-700);
+                        "
+                    >
+                        From Filter String:
+                    </p>
+                    <div
+                        id="emailStringDisplay"
+                        style="
+                            font-family: var(--font-mono);
+                            background: var(--gray-100);
+                            padding: 0.75rem;
+                            border-radius: 4px;
+                            border: 1px solid var(--gray-200);
+                            color: var(--gray-900);
+                            word-break: break-all;
+                            margin-top: 1rem;
+                            margin-bottom: 1rem;
+                        "
+                    ></div>
+                    <button
+                        onclick="copyEmailString()"
+                        style="
+                            background: var(--black);
+                            color: var(--white);
+                            padding: 0.6rem 1rem;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            font-weight: 500;
+                            transition: background 0.2s;
+                        "
+                    >
+                        Copy Email String
+                    </button>
+
+                    <p
+                        style="
+                            margin-top: 1.5rem;
+                            margin-bottom: 0.5rem;
+                            color: var(--gray-700);
+                        "
+                    >
+                        Subject Filter String:
+                    </p>
+                    <div
+                        id="subjectStringDisplay"
+                        style="
+                            font-family: var(--font-mono);
+                            background: var(--gray-100);
+                            padding: 0.75rem;
+                            border-radius: 4px;
+                            border: 1px solid var(--gray-200);
+                            color: var(--gray-900);
+                            word-break: break-all;
+                            margin-top: 1rem;
+                            margin-bottom: 1rem;
+                        "
+                    ></div>
+                    <button
+                        onclick="copySubjectString()"
+                        style="
+                            background: var(--black);
+                            color: var(--white);
+                            padding: 0.6rem 1rem;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            font-weight: 500;
+                            transition: background 0.2s;
+                        "
+                    >
+                        Copy Subject String
+                    </button>
+                </div>
+            </li>
+            <li>
+                Under "<strong>If a message</strong>", select "<strong
+                    >is from</strong
+                >"
+            </li>
+            <li>Paste your bank email string in the text field</li>
+            <li>Click "<strong>Add another condition</strong>"</li>
+            <li>
+                Under "<strong>If a message</strong>", select "<strong
+                    >Subject includes</strong
+                >"
+            </li>
+            <li>Paste your subject filter string in the text field</li>
+            <li>
+                Under "<strong>Then</strong>", select "<strong
+                    >Forward to</strong
+                >"
+            </li>
+            <li>Enter your Daily Benji email address</li>
+            <li>Click "<strong>Done</strong>"</li>
+        </ol>
+    </div>
+
+    <div class="important-note">
+        <h3>Important Notes</h3>
+        <p>
+            Ensure you are logged into the correct iCloud account when setting
+            up forwarding.
+        </p>
+    </div>
+
+    <div class="next-step">
+        <h3>Next: Set Up Your Bank Alerts</h3>
+        <p>
+            Once you've set up iCloud forwarding, you'll need to enable
+            transaction alerts from your bank.
+        </p>
+        <a href="/setup">Go to Bank Setup Guides →</a>
+    </div>
+</div>
+<script>
+    function updateDisplays() {
+        const selectedCards = document.querySelectorAll(".bank-card.selected");
+        let selectedEmails = [];
+        let selectedKeywords = [];
+
+        selectedCards.forEach((card) => {
+            if (card.dataset.email) {
+                selectedEmails.push(card.dataset.email);
+            }
+            if (card.dataset.keyword) {
+                selectedKeywords.push(card.dataset.keyword);
+            }
+        });
+
+        const emailDisplayElement =
+            document.getElementById("emailStringDisplay");
+        if (emailDisplayElement) {
+            emailDisplayElement.textContent =
+                selectedEmails.length > 0 ? selectedEmails.join(" OR ") : "";
+        }
+
+        const subjectDisplayElement = document.getElementById(
+            "subjectStringDisplay",
+        );
+        if (subjectDisplayElement) {
+            // Use a Set to ensure unique keywords
+            const uniqueKeywords = [...new Set(selectedKeywords)];
+            subjectDisplayElement.textContent =
+                uniqueKeywords.length > 0 ? uniqueKeywords.join(" OR ") : "";
+        }
+    }
+
+    function toggleBankSelection(cardElement) {
+        cardElement.classList.toggle("selected");
+        updateDisplays();
+    }
+
+    function copyEmailString() {
+        const displayElement = document.getElementById("emailStringDisplay");
+        const textToCopy = displayElement.textContent;
+        if (textToCopy) {
+            navigator.clipboard
+                .writeText(textToCopy)
+                .then(() => {
+                    alert("Email string copied to clipboard!");
+                })
+                .catch((err) => {
+                    console.error("Failed to copy: ", err);
+                    alert("Failed to copy email string. Please copy manually.");
+                });
+        } else {
+            alert("No email string to copy.");
+        }
+    }
+
+    function copySubjectString() {
+        const displayElement = document.getElementById("subjectStringDisplay");
+        const textToCopy = displayElement.textContent;
+        if (textToCopy) {
+            navigator.clipboard
+                .writeText(textToCopy)
+                .then(() => {
+                    alert("Subject string copied to clipboard!");
+                })
+                .catch((err) => {
+                    console.error("Failed to copy: ", err);
+                    alert(
+                        "Failed to copy subject string. Please copy manually.",
+                    );
+                });
+        } else {
+            alert("No subject string to copy.");
+        }
+    }
+
+    // Initial display
+    updateDisplays();
+</script>
