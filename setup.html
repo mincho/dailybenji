@@ -1,0 +1,228 @@
+---
+layout: default
+title: Setup Guides - Daily Benji
+---
+
+<style>
+    .setup-hero {
+        text-align: center;
+        padding: 3rem 0;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .setup-hero h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--black);
+    }
+
+    .setup-hero p {
+        font-size: 1.25rem;
+        color: var(--gray-600);
+        line-height: 1.6;
+    }
+
+    .setup-section {
+        max-width: 900px;
+        margin: 0 auto 4rem auto;
+        padding: 0 2rem;
+    }
+
+    .setup-section h2 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--black);
+        text-align: center;
+    }
+
+    .section-description {
+        text-align: center;
+        color: var(--gray-600);
+        margin-bottom: 2rem;
+        font-size: 1rem;
+    }
+
+    .guide-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .guide-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1.5rem;
+        background: var(--gray-50);
+        border: 2px solid var(--gray-100);
+        border-radius: 12px;
+        text-decoration: none;
+        color: var(--black);
+        font-weight: 600;
+        font-size: 1rem;
+        text-align: center;
+        transition: all 0.2s ease;
+        min-height: 100px;
+    }
+
+    .guide-card:hover {
+        background: #eff6ff;
+        border-color: #2563eb;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+        color: var(--black);
+        text-decoration: none;
+    }
+
+    .guide-card.disabled {
+        background: var(--gray-100);
+        color: var(--gray-600);
+        cursor: not-allowed;
+        border-color: var(--gray-200);
+    }
+
+    .guide-card.disabled:hover {
+        transform: none;
+        box-shadow: none;
+        background: var(--gray-100);
+        border-color: var(--gray-200);
+        color: var(--gray-600);
+    }
+
+    .coming-soon {
+        font-size: 0.75rem;
+        color: var(--gray-600);
+        font-weight: 400;
+        margin-top: 0.25rem;
+    }
+
+    .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 2rem 0 1rem;
+        padding: 0.75rem 1rem;
+        background: var(--gray-100);
+        color: var(--black);
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+
+    .back-button:hover {
+        background: var(--gray-200);
+        color: var(--black);
+        text-decoration: none;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+        .setup-section {
+            padding: 0 1rem;
+        }
+
+        .setup-hero {
+            padding: 2rem 1rem;
+        }
+
+        .setup-hero h1 {
+            font-size: 2rem;
+        }
+
+        .setup-hero p {
+            font-size: 1.125rem;
+        }
+
+        .guide-grid {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .guide-card {
+            padding: 1.5rem 1rem;
+            min-height: 80px;
+        }
+    }
+</style>
+
+<a href="/help" class="back-button">&larr; Back to Help</a>
+
+<section class="setup-hero">
+    <h1>Setup Guides</h1>
+    <p>
+        Get Daily Benji running in minutes. Follow our step-by-step guides for
+        enabling bank alerts and setting up email forwarding.
+    </p>
+</section>
+
+<section class="setup-section">
+    <h2>Bank Setup Guides</h2>
+    <p class="section-description">
+        Enable transaction alerts for your bank or credit card
+    </p>
+    <div class="guide-grid">
+        <a href="/help/setup/chase" class="guide-card">Chase</a>
+        <a href="/help/setup/amex" class="guide-card">American Express</a>
+        <a href="/help/setup/capital-one" class="guide-card">Capital One</a>
+        <a href="/help/setup/barclays" class="guide-card">Barclays</a>
+        <a href="/help/setup/citi" class="guide-card">Citi</a>
+        <a href="/help/setup/bank-of-america" class="guide-card"
+            >Bank of America</a
+        >
+        <a href="/help/setup/discover" class="guide-card">Discover</a>
+        <a href="/help/setup/us-bank" class="guide-card">U.S. Bank</a>
+        <a href="/help/setup/wells-fargo" class="guide-card">Wells Fargo</a>
+        <a href="#" class="guide-card disabled">
+            Navy Federal Credit Union
+            <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="guide-card disabled">
+            PNC Bank
+            <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="guide-card disabled">
+            TD Bank
+            <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="guide-card disabled">
+            USAA
+            <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="guide-card disabled">
+            Synchrony
+            <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="guide-card disabled">
+            Venmo
+            <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="guide-card disabled">
+            PayPal
+            <span class="coming-soon">Coming Soon</span>
+        </a>
+    </div>
+</section>
+
+<section class="setup-section">
+    <h2>Email Forwarding Guides</h2>
+    <p class="section-description">
+        Set up automatic forwarding from your email to your Daily Benji inbox
+    </p>
+    <div class="guide-grid">
+        <a href="/help/setup/gmail-forwarding" class="guide-card">Gmail</a>
+        <a href="/help/setup/outlook-forwarding" class="guide-card">Outlook</a>
+        <a href="/help/setup/apple-mail-forwarding" class="guide-card"
+            >Apple Mail</a
+        >
+        <a href="#" class="guide-card disabled">
+            Yahoo Mail
+            <span class="coming-soon">Coming Soon</span>
+        </a>
+    </div>
+</section>
