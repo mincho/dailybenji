@@ -1,0 +1,290 @@
+---
+layout: default
+title: Features - The Daily Benji
+description: Everything Daily Benji does — a calm daily email backed by a full app you own and control. The daily briefing, flexible ways to add spending, organizing, views, insights, goals, sharing, and export.
+---
+
+<style>
+    .page-hero {
+        text-align: center;
+        max-width: 740px;
+        margin: 0 auto;
+        padding: var(--space-3xl) 0 var(--space-xl);
+    }
+
+    .page-hero p {
+        font-size: 1.125rem;
+        color: var(--gray-600);
+        margin-bottom: 0;
+    }
+
+    .feature-row.alt-bg {
+        background: var(--gray-50);
+    }
+
+    .feature-row-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-2xl);
+        align-items: center;
+        max-width: var(--container-max);
+        margin: 0 auto;
+    }
+
+    /* Alternate the screenshot side down the page */
+    .feature-row.reverse .feature-text {
+        order: 2;
+    }
+    .feature-row.reverse .feature-shot {
+        order: 1;
+    }
+
+    .feature-text h2 {
+        margin-bottom: var(--space-sm);
+    }
+
+    .feature-text .features-subtitle {
+        text-align: left;
+        max-width: none;
+        margin: 0 0 var(--space-md);
+    }
+
+    .feature-points {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .feature-points li {
+        padding: var(--space-sm) 0;
+        border-bottom: 1px solid var(--gray-100);
+        font-size: 0.9375rem;
+        line-height: 1.55;
+        color: var(--gray-700);
+    }
+
+    .feature-points li:last-child {
+        border-bottom: none;
+    }
+
+    .feature-points strong {
+        color: var(--black);
+        font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+        .feature-row-inner {
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+        }
+        /* On mobile, always show text first then screenshot */
+        .feature-row.reverse .feature-text {
+            order: 1;
+        }
+        .feature-row.reverse .feature-shot {
+            order: 2;
+        }
+    }
+</style>
+
+<section class="page-hero">
+    <p class="section-kicker">Features</p>
+    <h1>Simple to read. Powerful to use.</h1>
+    <p>
+        The daily email is the heart of Daily Benji. Underneath is a full app
+        you own and control. Here's everything it does.
+    </p>
+</section>
+
+<!-- 01 The daily email -->
+<section class="feature-row">
+    <div class="feature-row-inner">
+        <div class="feature-text">
+            <h2>The daily email</h2>
+            <p class="features-subtitle">
+                One briefing every morning, at the hour and time zone you
+                choose.
+            </p>
+            <ul class="feature-points">
+                <li><strong>Yesterday at a glance.</strong> The headline number, transaction count, and how it compares to your 30-day average.</li>
+                <li><strong>Grouped by card.</strong> Every charge with its merchant, category, tag, and amount — totaled per account.</li>
+                <li><strong>Anticipated spend.</strong> Recurring charges expected in the next five days, predicted from your own history.</li>
+                <li><strong>Discretionary vs essential.</strong> See at a glance how much of yesterday was spending you actually control.</li>
+                <li><strong>A different deep-dive daily.</strong> Category trends, top merchants, observations, goal coaching, and a full weekly review.</li>
+                <li><strong>Reply to ask.</strong> Hit reply and ask in plain English — and CC a partner or accountant, too.</li>
+            </ul>
+        </div>
+        <div class="feature-shot">
+            <div class="shot-placeholder" style="aspect-ratio: 16 / 10">
+                <strong>Screenshot: the daily email</strong>
+                A crop of the morning email (try the insights block).
+                <code>/assets/images/screenshots/feature-email.webp</code>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 02 Getting your spending in -->
+<section class="feature-row alt-bg reverse">
+    <div class="feature-row-inner">
+        <div class="feature-text">
+            <h2>Getting your spending in</h2>
+            <p class="features-subtitle">
+                Three ways, whichever fits your life — no bank logins, ever.
+            </p>
+            <ul class="feature-points">
+                <li><strong>Auto-forward bank alerts.</strong> One forwarding rule, set once. Works with 14+ major banks out of the box, plus a generic profile.</li>
+                <li><strong>Manual entry.</strong> Single-page bulk add with autocomplete. Twenty transactions in a minute.</li>
+                <li><strong>CSV import.</strong> Upload exports from your bank, card, or old tool — we remember the column mapping.</li>
+                <li><strong>Multi-currency.</strong> 14+ currencies auto-convert to USD at daily rates, with the original amount preserved.</li>
+                <li><strong>Duplicate prevention.</strong> De-duplicated on the email's message ID, so a double-forward never double-counts.</li>
+                <li><strong>No bank logins.</strong> Alerts carry no credentials or account numbers — automation without the keys.</li>
+            </ul>
+        </div>
+        <div class="feature-shot">
+            <div class="shot-placeholder" style="aspect-ratio: 16 / 10">
+                <strong>Screenshot: adding spending</strong>
+                The add-transaction screen or CSV import mapping.
+                <code>/assets/images/screenshots/feature-add-spending.webp</code>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 03 Make it yours -->
+<section class="feature-row">
+    <div class="feature-row-inner">
+        <div class="feature-text">
+            <h2>Make it yours</h2>
+            <p class="features-subtitle">
+                Organize spending the way you think about it.
+            </p>
+            <ul class="feature-points">
+                <li><strong>Smart auto-categorization.</strong> Your personal rules, then community rules, then an AI fallback — remembered forever once set.</li>
+                <li><strong>Tags &amp; memos.</strong> Your own colored labels and free-text notes, used in filters, exports, and the daily email.</li>
+                <li><strong>Receipts.</strong> Paste, drag, or upload photos and PDFs onto any transaction — up to five each.</li>
+                <li><strong>Recurrence.</strong> Mark a charge monthly, annual, or one-time; the pattern auto-applies to similar charges.</li>
+                <li><strong>Non-spending markers.</strong> Exclude transfers, card payments, and reimbursements — by transaction, merchant, or category.</li>
+                <li><strong>Reminders.</strong> Set one on any charge; it surfaces in your daily email until done.</li>
+            </ul>
+        </div>
+        <div class="feature-shot">
+            <div class="shot-placeholder" style="aspect-ratio: 16 / 10">
+                <strong>Screenshot: organizing</strong>
+                A transaction with tags, a memo, and a receipt attached.
+                <code>/assets/images/screenshots/feature-organize.webp</code>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 04 See it any way -->
+<section class="feature-row alt-bg reverse">
+    <div class="feature-row-inner">
+        <div class="feature-text">
+            <h2>See it any way</h2>
+            <p class="features-subtitle">
+                The email is enough on its own — but the app is there when you
+                want to dig in.
+            </p>
+            <ul class="feature-points">
+                <li><strong>Dashboard.</strong> Month-to-date spend, daily average, projected month-end, and a 30-day sparkline.</li>
+                <li><strong>All Activity.</strong> A searchable, filterable table with inline category editing and bulk updates.</li>
+                <li><strong>By category, merchant, tag, or account.</strong> Totals, percentages, lifetime spend, and last activity.</li>
+                <li><strong>Calendar heatmap.</strong> A month view of your spending days. Click any day to see exactly what happened.</li>
+                <li><strong>Anticipated spend.</strong> The full list of predicted recurring charges, with confidence based on history.</li>
+                <li><strong>Account management.</strong> Link a new card to an old one, merge duplicates, and rename accounts inline.</li>
+            </ul>
+        </div>
+        <div class="feature-shot">
+            <div class="shot-placeholder" style="aspect-ratio: 16 / 10">
+                <strong>Screenshot: views</strong>
+                The calendar heatmap or dashboard — the most visual screen.
+                <code>/assets/images/screenshots/feature-views.webp</code>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 05 Insights & goals -->
+<section class="feature-row">
+    <div class="feature-row-inner">
+        <div class="feature-text">
+            <h2>Insights &amp; goals</h2>
+            <p class="features-subtitle">
+                Specific, dated patterns — never vague nudges. Every one cites
+                real transactions.
+            </p>
+            <ul class="feature-points">
+                <li><strong>Dated observations.</strong> Anomalies, category swings, day-of-week patterns, your largest day, spending pace.</li>
+                <li><strong>Subscription watch.</strong> An active roll-up, price-change alerts, and "possibly canceled" flags.</li>
+                <li><strong>Opportunity cost.</strong> "Sweetgreen ≈ $1,612/year — compounded over 10 years at 7%, ≈ $22,290." The math, not a lecture.</li>
+                <li><strong>Goals, four ways.</strong> Cap spending overall, by category, merchant, or tag — over 7 days, 30 days, the month, or a custom window.</li>
+                <li><strong>Goal coaching.</strong> On-pace / over-pace status, projected outcome, days remaining, and where to ease up.</li>
+                <li><strong>Verify or dismiss.</strong> Each insight links to the transactions behind it. Dismiss anything you don't want to see again.</li>
+            </ul>
+        </div>
+        <div class="feature-shot">
+            <div class="shot-placeholder" style="aspect-ratio: 16 / 10">
+                <strong>Screenshot: insights &amp; goals</strong>
+                The insights feed, or a goal showing pace and projection.
+                <code>/assets/images/screenshots/feature-insights.webp</code>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 06 Share, export & own it -->
+<section class="feature-row alt-bg reverse">
+    <div class="feature-row-inner">
+        <div class="feature-text">
+            <h2>Share, export &amp; own it</h2>
+            <p class="features-subtitle">
+                Your transactions are yours — to share, to take with you, or to
+                erase.
+            </p>
+            <ul class="feature-points">
+                <li><strong>Collaborators.</strong> Invite a spouse, partner, or accountant to one shared account — forwarded transactions land in the same place no matter who sends them.</li>
+                <li><strong>Demo mode.</strong> Try a real, always-current account with realistic data — no signup required.</li>
+                <li><strong>CSV export.</strong> Full transaction detail, including original currency, original amount, and attached-receipt filenames.</li>
+                <li><strong>ZIP export with receipts.</strong> Filter by tag, date, category, or account and download the CSV plus every matching receipt.</li>
+                <li><strong>Real deletion.</strong> Cancel and your full history is permanently removed — we show you the exact count before you confirm.</li>
+                <li><strong>$5/month, flat.</strong> Every feature on this page included. No upsells, no premium tier. Cancel anytime.</li>
+            </ul>
+        </div>
+        <div class="feature-shot">
+            <div class="shot-placeholder" style="aspect-ratio: 16 / 10">
+                <strong>Screenshot: share &amp; export</strong>
+                The collaborators settings, or the export screen.
+                <code>/assets/images/screenshots/feature-export.webp</code>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section id="get-started" class="waitlist-section">
+    <div class="waitlist-content">
+        <h2>Start your Daily Benji</h2>
+        <p class="waitlist-subtitle">
+            $5 a month. Every feature included. Cancel anytime — and when you
+            do, we permanently delete every transaction, memo, and tag.
+        </p>
+
+        <form class="waitlist-form" action="/get-started" method="get">
+            <input
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+            />
+            <button type="submit">Get Started</button>
+        </form>
+
+        <div class="waitlist-notes">
+            <p>✓ Every feature included</p>
+            <p>✓ Cancel anytime</p>
+            <p>✓ Real deletion when you cancel</p>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,300 @@
+---
+layout: default
+title: Privacy Policy - The Daily Benji
+description: How The Daily Benji handles your data — in plain English. We never connect to your bank, we don't sell your data, and you can export or delete everything anytime.
+---
+
+<style>
+    .policy {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: var(--space-2xl) 0;
+    }
+
+    .policy h1 {
+        text-align: center;
+        margin-bottom: var(--space-xs);
+    }
+
+    .policy .last-updated {
+        text-align: center;
+        color: var(--gray-500);
+        font-size: 0.875rem;
+        margin-bottom: var(--space-2xl);
+    }
+
+    .policy h2 {
+        font-size: 1.5rem;
+        margin-top: var(--space-2xl);
+        margin-bottom: var(--space-md);
+        padding-bottom: var(--space-xs);
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+    .policy h3 {
+        font-size: 1.0625rem;
+        font-weight: 600;
+        margin-top: var(--space-lg);
+        margin-bottom: var(--space-xs);
+    }
+
+    .policy p,
+    .policy li {
+        color: var(--gray-700);
+        line-height: 1.7;
+    }
+
+    .policy p {
+        margin-bottom: var(--space-sm);
+    }
+
+    .policy ul {
+        margin: 0 0 var(--space-md);
+        padding-left: 1.25rem;
+    }
+
+    .policy li {
+        margin-bottom: var(--space-xs);
+    }
+
+    .policy strong {
+        color: var(--black);
+    }
+
+    /* Plain-English summary up top */
+    .policy-summary {
+        background: var(--gray-50);
+        border-left: 3px solid var(--black);
+        border-radius: 8px;
+        padding: var(--space-lg);
+        margin-bottom: var(--space-xl);
+    }
+
+    .policy-summary h2 {
+        margin-top: 0;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: var(--space-sm);
+        font-size: 1.25rem;
+    }
+
+    .policy-summary ul {
+        margin-bottom: 0;
+    }
+
+    .policy-contact {
+        background: var(--gray-50);
+        border-radius: 8px;
+        padding: var(--space-lg);
+        text-align: center;
+        margin-top: var(--space-md);
+    }
+
+    .policy-contact p {
+        margin: 0;
+    }
+</style>
+
+<div class="policy">
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last updated: June 4, 2026</p>
+
+    <p>
+        The Daily Benji ("Daily Benji," "we," "us") is an email-based spending
+        tracker available only to people who reside in the United States. This
+        policy explains what we collect, how we use it, and the choices you
+        have. We've kept it in plain English.
+    </p>
+
+    <!-- confirm forwarded-email retention window below: code currently says ~15 days, MARKETING_FEATURES.md says 30 -->
+    <div class="policy-summary">
+        <h2>The short version</h2>
+        <ul>
+            <li>We never connect to your bank or ask for your bank login.</li>
+            <li>
+                We only see the transaction-alert emails you choose to forward,
+                plus the account details you give us.
+            </li>
+            <li>
+                We don't sell your data, run ads, or use third-party advertising
+                trackers.
+            </li>
+            <li>
+                You can export or delete your data anytime. Cancel, and we erase
+                everything.
+            </li>
+            <li>Daily Benji is available only to US residents.</li>
+        </ul>
+    </div>
+
+    <h2>1. What we collect</h2>
+
+    <h3>Information you give us</h3>
+    <ul>
+        <li>Your name and email address</li>
+        <li>Your time zone (so summaries arrive at the right local time)</li>
+        <li>Any additional email addresses you ask us to send summaries to</li>
+        <li>Your account settings, tags, memos, and support messages</li>
+    </ul>
+
+    <h3>Spending data you send us</h3>
+    <p>
+        The transaction-alert emails you forward, plus anything you enter
+        manually or import by CSV. From a forwarded alert we extract only:
+    </p>
+    <ul>
+        <li>The merchant name</li>
+        <li>The amount and date</li>
+        <li>The card name or nickname your bank includes</li>
+        <li>Sometimes the last four digits of the card</li>
+    </ul>
+
+    <h3>Payment information</h3>
+    <p>
+        Payments are handled by Stripe. Your card details go directly to Stripe
+        over an encrypted connection — <strong>we never receive or store your
+        full card number</strong>. Stripe returns only limited details (such as
+        the last four digits, expiration date, and billing ZIP) so we can show
+        your payment method and send renewal reminders.
+    </p>
+
+    <h3>Basic technical data</h3>
+    <p>
+        Like any website, our servers keep standard logs (such as IP address,
+        browser type, and timestamps) needed to operate and secure the service,
+        and we use essential cookies to keep you signed in.
+    </p>
+
+    <h2>2. What we never collect or access</h2>
+    <ul>
+        <li>Your bank login or password — we have no bank connection and use no aggregator (no Plaid, Yodlee, or similar)</li>
+        <li>Full bank account or card numbers</li>
+        <li>Your account balances</li>
+        <li>Social Security, tax ID, or driver's license numbers</li>
+    </ul>
+
+    <h2>3. How we use your information</h2>
+    <ul>
+        <li>Generate your daily summaries and the spending views in your dashboard</li>
+        <li>Send the daily email to you and any recipients you authorize</li>
+        <li>Process your subscription and send billing and service notices</li>
+        <li>Provide support and respond to your messages</li>
+        <li>Maintain security, prevent abuse, and meet our legal obligations</li>
+    </ul>
+    <p>
+        <strong>We do not use your data for advertising, and we never sell or
+        rent it.</strong>
+    </p>
+
+    <h2>4. How your information is shared</h2>
+    <p>
+        We share data only with the service providers that help us run Daily
+        Benji, under agreements that limit them to that purpose:
+    </p>
+    <ul>
+        <li><strong>Stripe</strong> — payment processing</li>
+        <li><strong>Postmark</strong> — sending email</li>
+        <li><strong>Render</strong> — hosting</li>
+    </ul>
+    <p>
+        We may also disclose information if required by law (see section 9). We
+        never sell your personal information or share it for advertising.
+    </p>
+
+    <h2>5. How long we keep it</h2>
+    <ul>
+        <li>
+            <strong>Forwarded emails:</strong> once we've parsed a forwarded
+            alert into a transaction, we delete the original email
+            automatically within 30 days.
+        </li>
+        <li>
+            <strong>Your transactions and account data:</strong> kept while your
+            account is active so we can show your history.
+        </li>
+        <li>
+            <strong>After you cancel:</strong> permanently deleted within 3
+            business days (see section 7).
+        </li>
+    </ul>
+
+    <h2>6. How we protect it</h2>
+    <ul>
+        <li>Encrypted in transit (HTTPS/TLS) and at rest</li>
+        <li>Hosted on reputable, secured infrastructure</li>
+        <li>Employee access to user data is limited and need-based</li>
+    </ul>
+    <p>
+        No system is perfectly secure, but we take reasonable measures to
+        protect your information.
+    </p>
+
+    <h2>7. Your rights and choices</h2>
+    <ul>
+        <li><strong>Access &amp; export:</strong> view all your transactions in your dashboard and export them as CSV, or a ZIP with receipts, anytime</li>
+        <li><strong>Correct:</strong> edit your information and transactions whenever you like</li>
+        <li><strong>Delete:</strong> cancel your account to erase your data</li>
+        <li><strong>Recipients:</strong> add or remove additional email recipients in settings</li>
+    </ul>
+    <p>
+        When you cancel, we permanently delete your transaction history, memos,
+        tags, goals, and related records within 3 business days. We show you
+        what will be removed before you confirm. Deletion is permanent and
+        can't be undone. We may keep limited billing records where the law
+        requires it.
+    </p>
+    <p>
+        To exercise any of these, use your account at app.dailybenji.com or
+        email support@dailybenji.com.
+    </p>
+
+    <h2>8. Cookies and tracking</h2>
+    <p>
+        We use only the essential cookies needed to keep you signed in and
+        operate the site. We don't use third-party advertising or cross-site
+        tracking cookies.
+    </p>
+
+    <h2>9. Legal requests</h2>
+    <p>
+        If we're legally required to disclose information, we provide only
+        what's necessary, and we'll notify you unless the law prohibits it.
+    </p>
+
+    <h2>10. Children's privacy</h2>
+    <p>
+        Daily Benji isn't directed to anyone under 18, and we don't knowingly
+        collect information from children. If you believe a child has provided
+        us information, contact us and we'll delete it.
+    </p>
+
+    <h2>11. California residents</h2>
+    <p>
+        If you're a California resident, you have the right to know what
+        personal information we collect, to request its deletion, and not to be
+        discriminated against for exercising those rights. We do not sell or
+        share your personal information as those terms are defined under
+        California law. To make a request, email support@dailybenji.com.
+    </p>
+
+    <h2>12. United States only</h2>
+    <p>
+        Daily Benji is intended only for people who reside in the United States.
+        We don't offer the service to, or knowingly collect information from,
+        people outside the US, and your information is stored and processed in
+        the United States. If you don't reside in the US, please don't use Daily
+        Benji.
+    </p>
+
+    <h2>13. Changes to this policy</h2>
+    <p>
+        If we make material changes, we'll update the date at the top and notify
+        you by email or with a notice on the site.
+    </p>
+
+    <h2>14. Contact us</h2>
+    <p>Questions about your privacy or this policy?</p>
+    <div class="policy-contact">
+        <p><strong>support@dailybenji.com</strong></p>
+    </div>
+</div>

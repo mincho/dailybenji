@@ -1,1326 +1,494 @@
 ---
 layout: default
-title: The Daily Benji - Your spending, delivered daily. No app required.
+title: The Daily Benji — Your spending, delivered. Every morning, one email.
+description: One calm email every morning that summarizes yesterday's spending, surfaces patterns, and flags what's coming next — backed by a full app you own and control. No bank logins. $5/month.
 ---
 
 <style>
-    @media (max-width: 768px) {
-        .email-preview {
-            transform: scale(0.9);
-            transform-origin: top left;
-            width: 111.1%;
-        }
-        .email-preview-wrapper {
-            position: relative;
-            overflow: hidden;
-        }
+    /* Inside the features section */
+    .features h3 {
+        text-align: center;
+        margin-top: var(--space-2xl);
+        margin-bottom: var(--space-xs);
+        font-size: 1.5rem;
     }
-    @media (max-width: 480px) {
-        .email-preview {
-            transform: scale(0.8);
-            transform-origin: top left;
-            width: 125%;
-        }
-        .email-preview-wrapper {
-            position: relative;
-            overflow: hidden;
-        }
+
+    .features-subtitle {
+        text-align: center;
+        color: var(--gray-600);
+        max-width: 600px;
+        margin: 0 auto var(--space-lg);
+        font-size: 0.9375rem;
+    }
+
+    .observation-list {
+        list-style: none;
+        padding: 0;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .observation-list li {
+        background: var(--gray-50);
+        padding: var(--space-md) var(--space-lg);
+        margin-bottom: var(--space-sm);
+        border-radius: 8px;
+        text-align: left;
+        font-style: italic;
+        color: var(--gray-700);
+        line-height: 1.5;
+        border-left: 3px solid var(--gray-400);
+        font-size: 0.9375rem;
+    }
+
+    /* Small uppercase kicker above section headings */
+    .section-kicker {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--gray-500);
+        text-align: center;
+        margin-bottom: var(--space-xs);
+    }
+
+    .centered-heading {
+        text-align: center;
+    }
+
+    /* Pricing */
+    .pricing-simple {
+        text-align: center;
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    .pricing-simple .price-big {
+        font-family: var(--font-serif);
+        font-size: clamp(3.5rem, 9vw, 5.5rem);
+        font-weight: 600;
+        letter-spacing: -1px;
+        line-height: 1;
+        color: var(--black);
+    }
+
+    .pricing-simple .price-unit {
+        color: var(--gray-600);
+        font-size: 1.125rem;
+        margin-bottom: var(--space-lg);
+    }
+
+    .pricing-simple ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto var(--space-md);
+        display: inline-block;
+        text-align: left;
+    }
+
+    .pricing-simple li {
+        padding: var(--space-xs) 0;
+        color: var(--gray-700);
+    }
+
+    .pricing-simple li::before {
+        content: "✓";
+        color: var(--black);
+        font-weight: 700;
+        margin-right: 0.75rem;
+    }
+
+    .pricing-closing {
+        font-size: 0.9375rem;
+        color: var(--gray-600);
+        max-width: 460px;
+        margin: var(--space-md) auto 0;
+    }
+
+    /* FAQ */
+    .faq {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .faq-item {
+        padding: var(--space-md) 0;
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+    .faq-item:last-child {
+        border-bottom: none;
+    }
+
+    .faq-item h4 {
+        margin-bottom: var(--space-xs);
+    }
+
+    .faq-item p {
+        margin: 0;
+        font-size: 0.9375rem;
+    }
+
+    .privacy-link {
+        text-align: center;
+        margin-top: var(--space-lg);
+        margin-bottom: 0;
+    }
+
+    .privacy-link a {
+        color: var(--white);
+        text-decoration: underline;
+        font-weight: 600;
     }
 </style>
 
-<script>
-    function adjustEmailHeight() {
-        const wrapper = document.querySelector(".email-preview-wrapper");
-        const preview = document.querySelector(".email-preview");
-
-        if (wrapper && preview && window.innerWidth <= 768) {
-            const scale = window.innerWidth <= 480 ? 0.8 : 0.9;
-            const originalHeight = preview.scrollHeight;
-            const buffer = 30; // Small buffer to prevent cutoff
-            wrapper.style.height = originalHeight * scale + buffer + "px";
-        } else if (wrapper) {
-            wrapper.style.height = "auto";
-        }
-    }
-
-    window.addEventListener("load", adjustEmailHeight);
-    window.addEventListener("resize", adjustEmailHeight);
-</script>
 
 <!-- Hero Section -->
 <section class="hero">
     <div class="hero-content">
         <h1 class="hero-headline">
-            What if tracking your spending was as simple as checking your email?
+            Your spending summary, in your inbox every morning.
         </h1>
         <p class="hero-subtext">
-            One email every morning with all your transactions. No maintenance,
-            no updates, no logging in ever again.
+            No bank logins. Your data stays yours. Just one calm email a day.
         </p>
         <div class="hero-cta">
-            <a href="/get-started" class="btn btn-primary">Join the Waitlist</a>
+            <a href="/get-started" class="btn btn-primary">Get Started</a>
             <span class="cta-note"
-                >Free during beta • No credit card needed</span
+                >$5/month • Cancel anytime • We never see your bank login</span
             >
         </div>
     </div>
 
-    <!-- Updated Email Preview Section -->
-    <div class="email-preview-wrapper" style="margin-bottom: 60px">
-        <div class="browser-mockup">
-            <div class="browser-bar">
-                <div class="browser-dots">
-                    <span></span><span></span><span></span>
-                </div>
-                <div class="browser-title">Inbox - The Daily Benji</div>
-            </div>
-            <div
-                class="email-preview"
-                style="
-                    font-family:
-                        -apple-system, BlinkMacSystemFont,
-                        &quot;SF Pro Display&quot;, &quot;Helvetica Neue&quot;,
-                        Arial, sans-serif;
-                    background: white;
-                    color: #1d1d1f;
-                "
-            >
-                <!-- Header -->
-                <div
-                    style="
-                        padding: 20px 20px 15px;
-                        border-bottom: 1px solid #f5f5f7;
-                    "
-                >
-                    <div
-                        style="
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                        "
-                    >
-                        <div
-                            style="
-                                font-size: 12px;
-                                font-weight: 600;
-                                color: #8e8e93;
-                                letter-spacing: 0.5px;
-                            "
-                        >
-                            THE DAILY BENJI
-                        </div>
-                        <div
-                            style="font-size: 12px; color: #8e8e93"
-                            id="email-delivered-date"
-                        >
-                            Delivered Today
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Yesterday Banner -->
-                <div style="padding: 15px 20px; text-align: center">
-                    <span
-                        style="
-                            background-color: #f5f5f7;
-                            border-radius: 20px;
-                            padding: 6px 16px;
-                            display: inline-block;
-                        "
-                    >
-                        <span
-                            style="
-                                font-size: 12px;
-                                color: #8e8e93;
-                                font-weight: 500;
-                            "
-                            >Yesterday's Report</span
-                        >
-                        <span
-                            style="font-size: 12px; color: #6e6e73"
-                            id="email-yesterday-date"
-                        >
-                            • Yesterday</span
-                        >
-                    </span>
-                </div>
-
-                <!-- Main Amount -->
-                <div style="text-align: center; padding: 0 20px 25px">
-                    <div
-                        style="
-                            font-size: 48px;
-                            font-weight: 300;
-                            color: #1d1d1f;
-                            letter-spacing: -1px;
-                        "
-                    >
-                        $266
-                    </div>
-                    <div
-                        style="font-size: 15px; color: #6e6e73; margin-top: 5px"
-                    >
-                        7 transactions
-                    </div>
-                </div>
-
-                <!-- Quick Stats -->
-                <div
-                    style="
-                        margin: 0 20px 25px;
-                        background: #f5f5f7;
-                        border-radius: 12px;
-                        padding: 16px;
-                    "
-                >
-                    <div style="display: flex; justify-content: space-around">
-                        <div style="text-align: center; flex: 1">
-                            <div
-                                style="
-                                    font-size: 18px;
-                                    font-weight: 500;
-                                    color: #1d1d1f;
-                                "
-                            >
-                                7
-                            </div>
-                            <div
-                                style="
-                                    font-size: 10px;
-                                    color: #8e8e93;
-                                    margin-top: 2px;
-                                "
-                            >
-                                purchases
-                            </div>
-                        </div>
-                        <div
-                            style="
-                                text-align: center;
-                                flex: 1;
-                                border-left: 1px solid #e5e5e7;
-                            "
-                        >
-                            <div
-                                style="
-                                    font-size: 18px;
-                                    font-weight: 500;
-                                    color: #1d1d1f;
-                                "
-                            >
-                                3
-                            </div>
-                            <div
-                                style="
-                                    font-size: 10px;
-                                    color: #8e8e93;
-                                    margin-top: 2px;
-                                "
-                            >
-                                cards
-                            </div>
-                        </div>
-                        <div
-                            style="
-                                text-align: center;
-                                flex: 1;
-                                border-left: 1px solid #e5e5e7;
-                            "
-                        >
-                            <div
-                                style="
-                                    font-size: 18px;
-                                    font-weight: 500;
-                                    color: #1d1d1f;
-                                "
-                            >
-                                $164
-                            </div>
-                            <div
-                                style="
-                                    font-size: 10px;
-                                    color: #8e8e93;
-                                    margin-top: 2px;
-                                "
-                            >
-                                daily avg
-                            </div>
-                        </div>
-                        <div
-                            style="
-                                text-align: center;
-                                flex: 1;
-                                border-left: 1px solid #e5e5e7;
-                            "
-                        >
-                            <div
-                                style="
-                                    font-size: 18px;
-                                    font-weight: 500;
-                                    color: #1d1d1f;
-                                "
-                            >
-                                $4,920
-                            </div>
-                            <div
-                                style="
-                                    font-size: 10px;
-                                    color: #8e8e93;
-                                    margin-top: 2px;
-                                "
-                            >
-                                30 days
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Key Insights - NEW TIMELINE FORMAT -->
-                <div style="margin: 0 20px 25px">
-                    <!-- Timeline header -->
-                    <div
-                        style="
-                            font-size: 12px;
-                            font-weight: 600;
-                            color: #007aff;
-                            letter-spacing: 0.5px;
-                            margin-bottom: 20px;
-                        "
-                    >
-                        YESTERDAY'S SPENDING HIGHLIGHTS
-                    </div>
-
-                    <!-- Timeline items -->
-                    <div>
-                        <!-- Spending Pace -->
-                        <div style="display: flex; margin-bottom: 20px">
-                            <div
-                                style="
-                                    width: 60px;
-                                    text-align: center;
-                                    position: relative;
-                                "
-                            >
-                                <div
-                                    style="
-                                        width: 40px;
-                                        height: 40px;
-                                        background: #34c759;
-                                        border-radius: 50%;
-                                        color: white;
-                                        line-height: 40px;
-                                        font-size: 18px;
-                                        margin: 0 auto;
-                                        font-weight: 600;
-                                    "
-                                >
-                                    ✓
-                                </div>
-                                <div
-                                    style="
-                                        width: 2px;
-                                        height: 60px;
-                                        background: #e5e5e7;
-                                        margin: 8px auto 0;
-                                        position: absolute;
-                                        left: 50%;
-                                        transform: translateX(-50%);
-                                    "
-                                ></div>
-                            </div>
-                            <div style="padding-left: 15px; flex: 1">
-                                <div
-                                    style="
-                                        font-size: 11px;
-                                        color: #8e8e93;
-                                        margin-bottom: 4px;
-                                        font-weight: 600;
-                                        letter-spacing: 0.5px;
-                                    "
-                                >
-                                    SPENDING PACE
-                                </div>
-                                <div
-                                    style="
-                                        font-size: 16px;
-                                        font-weight: 600;
-                                        color: #1d1d1f;
-                                        margin-bottom: 4px;
-                                        line-height: 1.3;
-                                    "
-                                >
-                                    Yesterday was 62% above your daily average
-                                </div>
-                                <div
-                                    style="
-                                        font-size: 14px;
-                                        color: #6e6e73;
-                                        line-height: 1.4;
-                                    "
-                                >
-                                    You spent $102 more than your typical
-                                    $164/day
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Largest Purchase -->
-                        <div style="display: flex; margin-bottom: 20px">
-                            <div
-                                style="
-                                    width: 60px;
-                                    text-align: center;
-                                    position: relative;
-                                "
-                            >
-                                <div
-                                    style="
-                                        width: 40px;
-                                        height: 40px;
-                                        background: #8e8e93;
-                                        border-radius: 50%;
-                                        color: white;
-                                        line-height: 40px;
-                                        font-size: 18px;
-                                        margin: 0 auto;
-                                        font-weight: 600;
-                                    "
-                                >
-                                    $
-                                </div>
-                                <div
-                                    style="
-                                        width: 2px;
-                                        height: 38px;
-                                        background: #e5e5e7;
-                                        margin: 8px auto 0;
-                                        position: absolute;
-                                        left: 50%;
-                                        transform: translateX(-50%);
-                                    "
-                                ></div>
-                            </div>
-                            <div style="padding-left: 15px; flex: 1">
-                                <div
-                                    style="
-                                        font-size: 11px;
-                                        color: #8e8e93;
-                                        margin-bottom: 4px;
-                                        font-weight: 600;
-                                        letter-spacing: 0.5px;
-                                    "
-                                >
-                                    BIGGEST PURCHASE
-                                </div>
-                                <div
-                                    style="
-                                        font-size: 16px;
-                                        font-weight: 600;
-                                        color: #1d1d1f;
-                                        margin-bottom: 4px;
-                                        line-height: 1.3;
-                                    "
-                                >
-                                    $89.47 at Whole Foods
-                                </div>
-                                <div
-                                    style="
-                                        font-size: 14px;
-                                        color: #6e6e73;
-                                        line-height: 1.4;
-                                    "
-                                >
-                                    This was 34% of yesterday's total
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Subscription Coming -->
-                        <div style="display: flex">
-                            <div style="width: 60px; text-align: center">
-                                <div
-                                    style="
-                                        width: 40px;
-                                        height: 40px;
-                                        background: #ff9500;
-                                        border-radius: 50%;
-                                        color: white;
-                                        line-height: 40px;
-                                        font-size: 18px;
-                                        margin: 0 auto;
-                                        font-weight: 600;
-                                    "
-                                >
-                                    ↻
-                                </div>
-                            </div>
-                            <div style="padding-left: 15px; flex: 1">
-                                <div
-                                    style="
-                                        font-size: 11px;
-                                        color: #8e8e93;
-                                        margin-bottom: 4px;
-                                        font-weight: 600;
-                                        letter-spacing: 0.5px;
-                                    "
-                                >
-                                    UPCOMING
-                                </div>
-                                <div
-                                    style="
-                                        font-size: 16px;
-                                        font-weight: 600;
-                                        color: #1d1d1f;
-                                        margin-bottom: 4px;
-                                        line-height: 1.3;
-                                    "
-                                >
-                                    Expect ~$11 from Spotify tomorrow
-                                </div>
-                                <div
-                                    style="
-                                        font-size: 14px;
-                                        color: #6e6e73;
-                                        line-height: 1.4;
-                                    "
-                                >
-                                    Monthly subscription renewal
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Yesterday's Activity -->
-                <div style="margin: 0 20px 25px">
-                    <div
-                        style="
-                            font-size: 12px;
-                            font-weight: 600;
-                            color: #007aff;
-                            letter-spacing: 0.5px;
-                            margin-bottom: 12px;
-                        "
-                    >
-                        YESTERDAY'S ACTIVITY
-                    </div>
-
-                    <!-- Account 1 -->
-                    <div style="margin-bottom: 15px">
-                        <div
-                            style="
-                                display: flex;
-                                justify-content: space-between;
-                                margin-bottom: 10px;
-                            "
-                        >
-                            <div style="text-align: left">
-                                <div
-                                    style="
-                                        font-size: 14px;
-                                        font-weight: 600;
-                                        color: #1d1d1f;
-                                    "
-                                >
-                                    Chase Sapphire
-                                </div>
-                                <div style="font-size: 12px; color: #8e8e93">
-                                    Main
-                                </div>
-                            </div>
-                            <div
-                                style="
-                                    font-size: 15px;
-                                    font-weight: 500;
-                                    color: #1d1d1f;
-                                "
-                            >
-                                $132.89
-                            </div>
-                        </div>
-                        <div style="padding-left: 12px">
-                            <div
-                                style="
-                                    display: flex;
-                                    justify-content: space-between;
-                                    padding: 3px 0;
-                                "
-                            >
-                                <span style="font-size: 13px; color: #3c3c43"
-                                    >Whole Foods</span
-                                >
-                                <span style="font-size: 13px; color: #1d1d1f"
-                                    >$89.47</span
-                                >
-                            </div>
-                            <div
-                                style="
-                                    display: flex;
-                                    justify-content: space-between;
-                                    padding: 3px 0;
-                                "
-                            >
-                                <span style="font-size: 13px; color: #3c3c43"
-                                    >Uber</span
-                                >
-                                <span style="font-size: 13px; color: #1d1d1f"
-                                    >$23.45</span
-                                >
-                            </div>
-                            <div
-                                style="
-                                    display: flex;
-                                    justify-content: space-between;
-                                    padding: 3px 0;
-                                "
-                            >
-                                <span style="font-size: 13px; color: #3c3c43"
-                                    >CVS Pharmacy</span
-                                >
-                                <span style="font-size: 13px; color: #1d1d1f"
-                                    >$18.47</span
-                                >
-                            </div>
-                            <div
-                                style="
-                                    display: flex;
-                                    justify-content: space-between;
-                                    padding: 3px 0;
-                                "
-                            >
-                                <span style="font-size: 13px; color: #3c3c43"
-                                    >NYC Transit</span
-                                >
-                                <span style="font-size: 13px; color: #1d1d1f"
-                                    >$2.90</span
-                                >
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Account 2 -->
-                    <div
-                        style="border-top: 1px solid #f0f0f0; padding-top: 15px"
-                    >
-                        <div
-                            style="
-                                display: flex;
-                                justify-content: space-between;
-                                margin-bottom: 10px;
-                            "
-                        >
-                            <div style="text-align: left">
-                                <div
-                                    style="
-                                        font-size: 14px;
-                                        font-weight: 600;
-                                        color: #1d1d1f;
-                                    "
-                                >
-                                    Amex Gold
-                                </div>
-                                <div style="font-size: 12px; color: #8e8e93">
-                                    Restaurant
-                                </div>
-                            </div>
-                            <div
-                                style="
-                                    font-size: 15px;
-                                    font-weight: 500;
-                                    color: #1d1d1f;
-                                "
-                            >
-                                $86.35
-                            </div>
-                        </div>
-                        <div style="padding-left: 12px">
-                            <div
-                                style="
-                                    display: flex;
-                                    justify-content: space-between;
-                                    padding: 3px 0;
-                                "
-                            >
-                                <span style="font-size: 13px; color: #3c3c43"
-                                    >Joe's Pizza</span
-                                >
-                                <span style="font-size: 13px; color: #1d1d1f"
-                                    >$38.50</span
-                                >
-                            </div>
-                            <div
-                                style="
-                                    display: flex;
-                                    justify-content: space-between;
-                                    padding: 3px 0;
-                                "
-                            >
-                                <span style="font-size: 13px; color: #3c3c43"
-                                    >The Smith</span
-                                >
-                                <span style="font-size: 13px; color: #1d1d1f"
-                                    >$47.85</span
-                                >
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Account 3 -->
-                    <div
-                        style="border-top: 1px solid #f0f0f0; padding-top: 15px"
-                    >
-                        <div
-                            style="
-                                display: flex;
-                                justify-content: space-between;
-                                margin-bottom: 10px;
-                            "
-                        >
-                            <div style="text-align: left">
-                                <div
-                                    style="
-                                        font-size: 14px;
-                                        font-weight: 600;
-                                        color: #1d1d1f;
-                                    "
-                                >
-                                    Bank of America
-                                </div>
-                                <div style="font-size: 12px; color: #8e8e93">
-                                    Checking
-                                </div>
-                            </div>
-                            <div
-                                style="
-                                    font-size: 15px;
-                                    font-weight: 500;
-                                    color: #1d1d1f;
-                                "
-                            >
-                                $46.80
-                            </div>
-                        </div>
-                        <div style="padding-left: 12px">
-                            <div
-                                style="
-                                    display: flex;
-                                    justify-content: space-between;
-                                    padding: 3px 0;
-                                "
-                            >
-                                <span style="font-size: 13px; color: #3c3c43"
-                                    >Shell Gas</span
-                                >
-                                <span style="font-size: 13px; color: #1d1d1f"
-                                    >$46.80</span
-                                >
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NEW: Top Merchants This Month -->
-                <div style="margin: 0 20px 25px">
-                    <div
-                        style="
-                            background: #f5f5f7;
-                            border-radius: 12px;
-                            padding: 16px;
-                        "
-                    >
-                        <div
-                            style="
-                                font-size: 12px;
-                                font-weight: 600;
-                                color: #007aff;
-                                letter-spacing: 0.5px;
-                                margin-bottom: 10px;
-                            "
-                        >
-                            YOUR MONEY'S TOP DESTINATIONS THIS MONTH
-                        </div>
-
-                        <!-- Top Merchants -->
-                        <div style="padding-bottom: 10px">
-                            <div
-                                style="
-                                    display: flex;
-                                    justify-content: space-between;
-                                    align-items: center;
-                                    padding-bottom: 10px;
-                                "
-                            >
-                                <div style="text-align: left">
-                                    <div
-                                        style="
-                                            font-size: 14px;
-                                            color: #1d1d1f;
-                                            font-weight: 500;
-                                        "
-                                    >
-                                        Whole Foods
-                                    </div>
-                                    <div
-                                        style="
-                                            font-size: 12px;
-                                            color: #8e8e93;
-                                            margin-top: 2px;
-                                        "
-                                    >
-                                        12 visits total
-                                    </div>
-                                </div>
-                                <div style="text-align: right">
-                                    <div
-                                        style="
-                                            font-size: 15px;
-                                            color: #1d1d1f;
-                                            font-weight: 500;
-                                        "
-                                    >
-                                        $487
-                                    </div>
-                                    <div
-                                        style="
-                                            font-size: 11px;
-                                            color: #8e8e93;
-                                            margin-top: 2px;
-                                        "
-                                    >
-                                        18% of month
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            style="
-                                border-top: 1px solid #e5e5e7;
-                                padding-top: 10px;
-                                padding-bottom: 10px;
-                            "
-                        >
-                            <div
-                                style="
-                                    display: flex;
-                                    justify-content: space-between;
-                                    align-items: center;
-                                "
-                            >
-                                <div style="text-align: left">
-                                    <div
-                                        style="
-                                            font-size: 14px;
-                                            color: #1d1d1f;
-                                            font-weight: 500;
-                                        "
-                                    >
-                                        Uber
-                                    </div>
-                                    <div
-                                        style="
-                                            font-size: 12px;
-                                            color: #8e8e93;
-                                            margin-top: 2px;
-                                        "
-                                    >
-                                        8 visits total
-                                    </div>
-                                </div>
-                                <div style="text-align: right">
-                                    <div
-                                        style="
-                                            font-size: 15px;
-                                            color: #1d1d1f;
-                                            font-weight: 500;
-                                        "
-                                    >
-                                        $234
-                                    </div>
-                                    <div
-                                        style="
-                                            font-size: 11px;
-                                            color: #8e8e93;
-                                            margin-top: 2px;
-                                        "
-                                    >
-                                        9% of month
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            style="
-                                border-top: 1px solid #e5e5e7;
-                                padding-top: 10px;
-                            "
-                        >
-                            <div
-                                style="
-                                    display: flex;
-                                    justify-content: space-between;
-                                    align-items: center;
-                                "
-                            >
-                                <div style="text-align: left">
-                                    <div
-                                        style="
-                                            font-size: 14px;
-                                            color: #1d1d1f;
-                                            font-weight: 500;
-                                        "
-                                    >
-                                        Amazon
-                                    </div>
-                                    <div
-                                        style="
-                                            font-size: 12px;
-                                            color: #8e8e93;
-                                            margin-top: 2px;
-                                        "
-                                    >
-                                        5 visits total
-                                    </div>
-                                </div>
-                                <div style="text-align: right">
-                                    <div
-                                        style="
-                                            font-size: 15px;
-                                            color: #1d1d1f;
-                                            font-weight: 500;
-                                        "
-                                    >
-                                        $198
-                                    </div>
-                                    <div
-                                        style="
-                                            font-size: 11px;
-                                            color: #8e8e93;
-                                            margin-top: 2px;
-                                        "
-                                    >
-                                        7% of month
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NEW: Month Progress Section -->
-                <div style="margin: 0 20px 25px">
-                    <div
-                        style="
-                            text-align: center;
-                            padding: 20px;
-                            background: #fafafa;
-                            border-radius: 12px;
-                        "
-                    >
-                        <div
-                            style="
-                                font-size: 13px;
-                                font-weight: 600;
-                                color: #007aff;
-                                letter-spacing: 0.5px;
-                                margin-bottom: 8px;
-                            "
-                        >
-                            MONTH PROGRESS
-                        </div>
-                        <div
-                            style="
-                                font-size: 24px;
-                                color: #1d1d1f;
-                                font-weight: 500;
-                                margin-bottom: 8px;
-                            "
-                            id="month-total-spent"
-                        >
-                            $2,732 spent so far
-                        </div>
-                        <div
-                            style="
-                                font-size: 13px;
-                                color: #6e6e73;
-                                margin-bottom: 12px;
-                            "
-                            id="month-progress-text"
-                        >
-                            Day 12 of 31 (39% through the month)
-                        </div>
-                        <div
-                            style="
-                                background: #e5e5e7;
-                                height: 4px;
-                                border-radius: 2px;
-                                overflow: hidden;
-                                max-width: 300px;
-                                margin: 0 auto 8px;
-                            "
-                        >
-                            <div
-                                style="
-                                    background: #007aff;
-                                    height: 100%;
-                                    width: 39%;
-                                "
-                                id="month-progress-bar"
-                            ></div>
-                        </div>
-                        <div
-                            style="font-size: 12px; color: #8e8e93"
-                            id="month-projection"
-                        >
-                            At this rate, you'll spend ~$7,005 by month end
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Daily Tip -->
-                <div
-                    style="
-                        margin: 20px;
-                        background: linear-gradient(
-                            135deg,
-                            #007aff 0%,
-                            #5856d6 100%
-                        );
-                        border-radius: 12px;
-                        padding: 16px;
-                        text-align: center;
-                    "
-                >
-                    <div
-                        style="font-size: 13px; color: white"
-                        id="email-daily-tip"
-                    >
-                        💡 Small daily habits compound. Cutting one $5 coffee
-                        saves $150/month.
-                    </div>
-                </div>
-            </div>
-
-            <!-- JavaScript to update dates, daily tip, and monthly progress -->
-            <script>
-                // Update dates dynamically
-                const today = new Date();
-                const yesterday = new Date(today);
-                yesterday.setDate(yesterday.getDate() - 1);
-
-                const days = [
-                    "Sunday",
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday",
-                ];
-                const months = [
-                    "Jan",
-                    "Feb",
-                    "Mar",
-                    "Apr",
-                    "May",
-                    "Jun",
-                    "Jul",
-                    "Aug",
-                    "Sep",
-                    "Oct",
-                    "Nov",
-                    "Dec",
-                ];
-
-                // Update delivered date
-                document.getElementById("email-delivered-date").textContent =
-                    `Delivered ${days[today.getDay()].substr(0, 3)} ${months[today.getMonth()]} ${today.getDate()}`;
-
-                // Update yesterday date
-                document.getElementById("email-yesterday-date").textContent =
-                    ` • ${months[yesterday.getMonth()]} ${yesterday.getDate()}`;
-
-                // Daily tips that rotate based on day of week
-                const dailyTips = [
-                    "💡 Sunday planning: Review last week's spending and set this week's intentions.",
-                    "💡 Monday motivation: Starting the week aware of spending helps you stay on track.",
-                    "💡 Tuesday tip: Mid-week expenses add up. Are you on pace for your goals?",
-                    "💡 Wednesday wisdom: You're halfway through the week - how's your budget looking?",
-                    "💡 Thursday thought: Weekend's coming. Plan fun that fits your budget.",
-                    "💡 Friday feeling: Before the weekend, check what you've already spent.",
-                    "💡 Weekend watch: Keep an eye on those impulse purchases today.",
-                ];
-
-                document.getElementById("email-daily-tip").innerHTML =
-                    dailyTips[today.getDay()];
-
-                // Update monthly progress dynamically
-                const currentDay = today.getDate();
-                const daysInMonth = new Date(
-                    today.getFullYear(),
-                    today.getMonth() + 1,
-                    0,
-                ).getDate();
-                const progressPercent = Math.round(
-                    (currentDay / daysInMonth) * 100,
-                );
-
-                // Update month progress text
-                document.getElementById("month-progress-text").textContent =
-                    `Day ${currentDay} of ${daysInMonth} (${progressPercent}% through the month)`;
-
-                // Update progress bar width
-                document.getElementById("month-progress-bar").style.width =
-                    `${progressPercent}%`;
-
-                // Calculate and update projected spending
-                const currentSpent = 2732; // This would be dynamic in real app
-                const projectedTotal = Math.round(
-                    (currentSpent / currentDay) * daysInMonth,
-                );
-                document.getElementById("month-projection").textContent =
-                    `At this rate, you'll spend ~$${projectedTotal.toLocaleString()} by month end`;
-            </script>
+    <!-- Email screenshot — swap this placeholder for a real <img class="shot" ...> -->
+    <div class="hero-shot">
+        <div
+            class="shot-placeholder"
+            style="aspect-ratio: 390 / 800; max-width: 390px; margin: 0 auto"
+        >
+            <strong>Daily email screenshot</strong>
+            A real screenshot of the morning email goes here.<br />
+            Phone proportion · about 390×800 (export 2× = 780×1600)
+            <code>/assets/images/screenshots/home-email.webp</code>
         </div>
     </div>
 
-    <!-- Problem/Solution -->
-    <section class="problem-solution">
-        <div class="problem-stat">
-            <p class="stat-callout">
-                Most people check their bank app once a month, forget what they
-                spent, and repeat.
-                <strong
-                    >What if you saw every transaction, every morning, without
-                    trying?</strong
-                >
+</section>
+
+<!-- The problem, named -->
+<section class="problem-solution">
+    <div class="problem-stat">
+        <p class="stat-callout">
+            Money comes in. Money goes out. And where it goes stays a blur.
+        </p>
+        <p class="stat-source">
+            It's not about being careless — spending is just genuinely hard to
+            see when it's scattered across cards, apps, and autopay. Budgeting
+            apps are overkill for it; doing nothing leaves the feeling in place.
+            Daily Benji is the middle path: awareness without homework.
+        </p>
+    </div>
+
+    <div class="solution-grid">
+        <div class="solution-point">
+            <h3>One email, every morning</h3>
+            <p>
+                A real briefing — not a notification, not a sales pitch.
+                Yesterday's spending, what's coming next, and a different
+                deep-dive each day.
+            </p>
+        </div>
+        <div class="solution-point">
+            <h3>Privacy-first by design</h3>
+            <p>
+                No bank logins. No Plaid, no aggregators. Ever. The $5/month
+                subscription is the entire business model — no ads, no selling
+                data.
+            </p>
+        </div>
+        <div class="solution-point">
+            <h3>Powerful when you want it</h3>
+            <p>
+                The email is enough on its own. But underneath is a full app you
+                own and control — attach receipts, set goals, share with your
+                partner, export everything. There when you want it, out of the
+                way when you don't.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- How it works -->
+<section class="how-it-works">
+    <p class="section-kicker">How it works</p>
+    <h2>Set it up once. Then just read.</h2>
+    <p class="section-subtitle">
+        However your spending gets in, the morning email is the same.
+    </p>
+
+    <div class="steps">
+        <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <h4>Auto-forward, type, or import</h4>
+                <p>
+                    Set a one-time rule that auto-forwards your bank's
+                    transaction alerts to your private Benji inbox — or add cash
+                    by hand, or upload a CSV. Set it once and never think about
+                    it again.
+                </p>
+            </div>
+        </div>
+
+        <div class="step-arrow">→</div>
+
+        <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <h4>Benji organizes and notices</h4>
+                <p>
+                    We categorize every charge, roll up your cards, catch
+                    subscriptions, and flag what's out of the ordinary.
+                </p>
+            </div>
+        </div>
+
+        <div class="step-arrow">→</div>
+
+        <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <h4>You read one email a day</h4>
+                <p>
+                    Tomorrow morning, your first Daily Benji arrives — every
+                    transaction from every card, in one place.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Insights worth reading -->
+<section class="problem-solution">
+    <p class="section-kicker">Worth reading</p>
+    <h2 class="centered-heading">The patterns Benji notices for you</h2>
+    <p class="features-subtitle">
+        Specific, dated observations — each one cites real transactions so you
+        can verify it. Dismiss any you don't want to see again.
+    </p>
+    <ul class="observation-list">
+        <li>"Starbucks: $42 on May 8 — about 6× the typical $7 from this merchant."</li>
+        <li>"Restaurants is up 54% in the last 30 days ($420 vs $273 the prior 30)."</li>
+        <li>"11 active monthly subscriptions totaling $187/month — $2,244/year if all renew."</li>
+        <li>"No charge from Spotify in 47 days (previously $10.99/mo). Did you mean to cancel?"</li>
+        <li>"Sweetgreen ≈ $1,612/year at current pace — at a 10-year S&amp;P 500 average of 7%, that compounds to ≈ $22,290."</li>
+    </ul>
+</section>
+
+<!-- Simple to read, powerful to use -->
+<section class="features">
+    <p class="section-kicker">Beyond the email</p>
+    <h2 class="centered-heading">Simple to read. Powerful to use.</h2>
+    <p class="features-subtitle">
+        The daily email is the heart of it. But underneath is a full app you
+        own and control — there when you want to dig in, invisible when you
+        don't.
+    </p>
+
+    <div class="feature-list">
+        <div class="feature">
+            <div class="feature-content">
+                <h4>Attach receipts</h4>
+                <p>
+                    Paste, drag, or upload photos and PDFs onto any transaction.
+                    Filter by tag and export the whole bundle — a lifesaver at
+                    tax time.
+                </p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-content">
+                <h4>Share with your partner</h4>
+                <p>
+                    Add a spouse, partner, or accountant to one shared account —
+                    or just CC them on the daily email.
+                </p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-content">
+                <h4>Set goals</h4>
+                <p>
+                    Cap spending by category, merchant, tag, or overall — with
+                    pace and projection in your weekly check-in.
+                </p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-content">
+                <h4>See it your way</h4>
+                <p>
+                    Calendar heatmap, dashboard, by category, by merchant, by
+                    card — whenever you want to look closer.
+                </p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-content">
+                <h4>Tag, note, and remind</h4>
+                <p>
+                    Label transactions, jot memos, and set reminders that
+                    surface in your daily email when they're due.
+                </p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-content">
+                <h4>Export everything</h4>
+                <p>
+                    Your transactions are yours. Download a full CSV any time,
+                    or a ZIP with every attached receipt included.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Privacy -->
+<section class="manifesto">
+    <h2>No bank logins. Ever.</h2>
+
+    <div class="manifesto-grid">
+        <div class="manifesto-item">
+            <h4>We never touch your bank</h4>
+            <p>
+                No Plaid, no Yodlee, no aggregator. Bank alert emails are the
+                only data source — and they don't contain account numbers or
+                credentials by design.
             </p>
         </div>
 
-        <div class="solution-grid">
-            <div class="solution-point">
-                <div class="icon">📧</div>
-                <h3>Everything in Email</h3>
-                <p>
-                    No apps to download. No dashboards to check. Just open your
-                    inbox.
-                </p>
-            </div>
-            <div class="solution-point">
-                <div class="icon">🔒</div>
-                <h3>Actually Private</h3>
-                <p>
-                    We never touch your bank account. No Plaid. No passwords.
-                    Just forwarded emails.
-                </p>
-            </div>
-            <div class="solution-point">
-                <div class="icon">☕</div>
-                <h3>Morning Routine</h3>
-                <p>
-                    Same time, same place, every day. Your money news with your
-                    morning coffee.
-                </p>
-            </div>
+        <div class="manifesto-item">
+            <h4>Your data is yours</h4>
+            <p>
+                Add, edit, or delete anything, anytime. No ads, no third-party
+                trackers, no data brokers. The $5/month subscription is the
+                whole business model.
+            </p>
         </div>
-    </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works">
-        <h2>Set it once, forget forever</h2>
-        <p class="section-subtitle">
-            Yes, setup takes 15 minutes. Then you never touch it again.
+        <div class="manifesto-item">
+            <h4>Real deletion</h4>
+            <p>
+                Cancel and your full history — every transaction, memo, and tag
+                — is permanently removed. We show you the exact count before you
+                confirm.
+            </p>
+        </div>
+    </div>
+
+    <p class="privacy-link">
+        <a href="/privacy">Read how we handle your data →</a>
+    </p>
+</section>
+
+<!-- Pricing -->
+<section>
+    <div class="pricing-simple">
+        <p class="section-kicker">Pricing</p>
+        <div class="price-big">$5</div>
+        <div class="price-unit">per month, flat</div>
+        <ul>
+            <li>Every feature included</li>
+            <li>No upsells, no premium tier, no add-ons</li>
+            <li>Cancel anytime, self-serve from settings</li>
+            <li>No bank logins, no Plaid, no aggregators</li>
+        </ul>
+        <p class="pricing-closing">
+            Cancel and we delete everything — your full transaction history,
+            every memo, every tag. No "we'll keep a backup."
+        </p>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="problem-solution">
+    <h2 class="centered-heading" style="margin-bottom: var(--space-2xl)">
+        Questions
+    </h2>
+    <div class="faq">
+        <div class="faq-item">
+            <h4>Do you connect to my bank?</h4>
+            <p>
+                No. We never ask for your bank login and don't use Plaid or any
+                aggregator. You forward your bank's transaction-alert emails —
+                those don't contain credentials or account numbers.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h4>What banks work?</h4>
+            <p>
+                14+ major banks out of the box — Chase, Amex, Capital One, Citi,
+                Bank of America, Discover, Wells Fargo, and more — plus a
+                generic profile for anything else, and manual or CSV entry for
+                the rest.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h4>Can I share it with my partner?</h4>
+            <p>
+                Yes. Add a collaborator — a spouse, partner, or accountant — and
+                you'll share one account. You can also CC additional people on
+                the daily email.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h4>What happens if I cancel?</h4>
+            <p>
+                Cancel anytime from settings. When you do, every transaction,
+                memo, tag, and goal is permanently deleted — we show you the
+                count before you confirm.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h4>Can I get my data out?</h4>
+            <p>
+                Anytime. Export a full CSV, or a ZIP that bundles the CSV with
+                every receipt you've attached — filtered however you like. Great
+                for tax season.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Get Started -->
+<section id="get-started" class="waitlist-section">
+    <div class="waitlist-content">
+        <h2>Start your Daily Benji</h2>
+        <p class="waitlist-subtitle">
+            $5 a month. Every feature included. Cancel anytime — and when you
+            do, we permanently delete every transaction, memo, and tag.
         </p>
 
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                    <h4>Get your magic email</h4>
-                    <p>
-                        We give you a unique address like alex@dailybenji.email
-                    </p>
-                </div>
-            </div>
+        <form class="waitlist-form" action="/get-started" method="get">
+            <input
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+            />
+            <button type="submit">Get Started</button>
+        </form>
 
-            <div class="step-arrow">→</div>
-
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                    <h4>Turn on bank alerts</h4>
-                    <p>
-                        Tell your cards to email you when you spend (we show you
-                        how)
-                    </p>
-                </div>
-            </div>
-
-            <div class="step-arrow">→</div>
-
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                    <h4>Auto-forward to Benji</h4>
-                    <p>Set Gmail to forward those alerts. Done forever.</p>
-                </div>
-            </div>
+        <div class="waitlist-notes">
+            <p>✓ Every feature included</p>
+            <p>✓ Cancel anytime</p>
+            <p>✓ Real deletion when you cancel</p>
         </div>
-
-        <div class="setup-note">
-            <p>
-                Tomorrow morning: your first Daily Benji arrives. Every
-                transaction from every card in one place.
-            </p>
-        </div>
-    </section>
-
-    <!-- The Anti-App Manifesto -->
-    <section class="manifesto">
-        <h2>Why we're email-only</h2>
-
-        <div class="manifesto-grid">
-            <div class="manifesto-item">
-                <h4>Built for your existing habits</h4>
-                <p>
-                    We built Daily Benji because tracking money shouldn't
-                    require willpower. You're already in your inbox every
-                    morning. Your spending summary should be too.
-                </p>
-            </div>
-
-            <div class="manifesto-item">
-                <h4>See it every day, spend less naturally</h4>
-                <p>
-                    Most people check finances monthly (if that). By then, the
-                    damage is done. Daily visibility changes behavior without
-                    budgets, lectures, or limits. Just awareness.
-                </p>
-            </div>
-
-            <div class="manifesto-item">
-                <h4>No badges. No streaks. No shame.</h4>
-                <p>
-                    Unlike apps you'll forget to check, Daily Benji shows up
-                    where you already are. Every single day. Turns out, just
-                    seeing your spending daily does more than any budget app
-                    you'll abandon next month.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- What You Get -->
-    <section class="features">
-        <h2>What's in your Daily Benji</h2>
-
-        <div class="feature-list">
-            <div class="feature">
-                <span class="feature-icon">📊</span>
-                <div class="feature-content">
-                    <h4>Yesterday's complete picture</h4>
-                    <p>
-                        Every transaction from every card, organized and totaled
-                    </p>
-                </div>
-            </div>
-
-            <div class="feature">
-                <span class="feature-icon">🔔</span>
-                <div class="feature-content">
-                    <h4>Smart alerts</h4>
-                    <p>
-                        Catches subscriptions, unusual charges, and spending
-                        spikes
-                    </p>
-                </div>
-            </div>
-
-            <div class="feature">
-                <span class="feature-icon">📈</span>
-                <div class="feature-content">
-                    <h4>Spending patterns</h4>
-                    <p>How yesterday compares to your usual habits</p>
-                </div>
-            </div>
-
-            <div class="feature">
-                <span class="feature-icon">🎯</span>
-                <div class="feature-content">
-                    <h4>Personalized insights</h4>
-                    <p>
-                        Gets smarter over time - the more we see, the more we
-                        can tell you
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Proof -->
-    <section class="testimonials">
-        <h2>Early beta feedback</h2>
-
-        <div class="testimonial-grid">
-            <div class="testimonial">
-                <p>
-                    "I spent $800 on DoorDash last month. Seeing it every day in
-                    black and white made me finally delete the app."
-                </p>
-                <cite>— Beta user, NYC</cite>
-            </div>
-
-            <div class="testimonial">
-                <p>
-                    "My wife and I both get the email. No more 'I thought you
-                    knew about that charge' conversations."
-                </p>
-                <cite>— Beta user, Austin</cite>
-            </div>
-
-            <div class="testimonial">
-                <p>
-                    "I was paying for 3 streaming services I forgot about. Daily
-                    Benji caught them all in the first month."
-                </p>
-                <cite>— Beta user, SF</cite>
-            </div>
-
-            <div class="testimonial">
-                <p>
-                    "The daily reminder is key. Finance tracking apps were
-                    great... the three times a year I remembered to open them."
-                </p>
-                <cite>— Beta user, Denver</cite>
-            </div>
-        </div>
-    </section>
-
-    <!-- Join Waitlist -->
-    <section id="join-waitlist" class="waitlist-section">
-        <div class="waitlist-content">
-            <h2>Join the beta waitlist</h2>
-            <p class="waitlist-subtitle">
-                We're letting people in slowly to make sure the experience is
-                perfect.
-            </p>
-
-            <form class="waitlist-form" action="/get-started" method="get">
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="your@email.com"
-                    required
-                />
-                <button type="submit">Get Early Access</button>
-            </form>
-
-            <div class="waitlist-notes">
-                <p>✓ Free during beta</p>
-                <p>✓ Help shape the product</p>
-                <p>✓ Lock in early-adopter pricing</p>
-            </div>
-        </div>
-    </section>
+    </div>
 </section>

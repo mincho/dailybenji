@@ -29,6 +29,11 @@ url: "http://dailybenji.com" # the base hostname & protocol for your site, e.g. 
 theme: minima
 plugins:
   - jekyll-feed
+
+exclude:
+  - MARKETING_FEATURES.md
+  - CLAUDE.md
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
