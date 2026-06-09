@@ -6,3 +6,4 @@ _site/
 .bundle/
 .DS_Store
 .env
+temp_assets/

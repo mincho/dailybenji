@@ -140,11 +140,211 @@ description: One calm email every morning that summarizes yesterday's spending, 
         text-decoration: underline;
         font-weight: 600;
     }
+
+    /* ===== Daily email carousel ===== */
+    /* Two-column hero */
+    .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: var(--space-2xl);
+        align-items: center;
+        max-width: var(--container-max);
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    /* min-width:0 lets grid columns shrink below their content's intrinsic
+       size — without it the ~578px email image forces its column wide and
+       blows out the layout on mobile */
+    .hero-grid > * {
+        min-width: 0;
+    }
+
+    .hero-grid .hero-content {
+        max-width: none;
+        margin: 0;
+    }
+
+    .hero-grid .hero-cta {
+        align-items: flex-start;
+    }
+
+    .email-carousel {
+        position: relative;
+        max-width: 480px;
+        margin: 0;
+    }
+
+    /* Clean email frame — a capped "peek" with a soft fade at the bottom */
+    .email-frame {
+        position: relative;
+        height: 560px;
+        max-width: 600px;
+        margin: 0 auto;
+        border: 1px solid var(--gray-200);
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--white);
+        box-shadow: 0 16px 44px rgba(0, 0, 0, 0.16);
+    }
+
+    .email-frame::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 64px;
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0),
+            var(--white)
+        );
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .carousel-viewport {
+        position: relative;
+        height: 100%;
+    }
+
+    /* crossfade: slides stacked, opacity-toggled */
+    .carousel-track {
+        position: relative;
+        height: 100%;
+    }
+
+    .carousel-slide {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        opacity: 0;
+        transition: opacity 0.6s ease;
+    }
+
+    .carousel-slide.is-active {
+        opacity: 1;
+    }
+
+    .carousel-slide .shot {
+        width: 100%;
+        height: auto;
+        display: block;
+        background: var(--white);
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid var(--gray-200);
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--black);
+        font-size: 1.5rem;
+        line-height: 1;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        transition:
+            transform 0.15s,
+            background 0.15s;
+    }
+
+    .carousel-arrow:hover {
+        background: var(--white);
+        transform: translateY(-50%) scale(1.06);
+    }
+
+    .carousel-arrow.prev {
+        left: 0;
+    }
+    .carousel-arrow.next {
+        right: 0;
+    }
+
+    .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-xs);
+        margin-top: var(--space-md);
+    }
+
+    .carousel-dot {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        background: var(--gray-300);
+        cursor: pointer;
+        transition:
+            background 0.2s,
+            transform 0.2s;
+    }
+
+    .carousel-dot.is-active {
+        background: var(--black);
+        transform: scale(1.25);
+    }
+
+    .carousel-caption {
+        text-align: center;
+        margin: var(--space-md) 0 0;
+        font-size: 0.875rem;
+        color: var(--gray-500);
+        min-height: 1.2em;
+    }
+
+    @media (max-width: 768px) {
+        .hero-grid {
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            text-align: center;
+        }
+        .hero-grid .hero-content {
+            margin: 0 auto;
+            max-width: 600px;
+        }
+        .hero-grid .hero-cta {
+            align-items: center;
+        }
+        .email-carousel {
+            max-width: 100%;
+            margin: 0;
+        }
+        .email-frame {
+            height: 540px;
+        }
+        /* swipe + dots are the touch controls; arrows would cover the wider image */
+        .carousel-arrow {
+            display: none;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .email-frame {
+            height: 500px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .carousel-slide {
+            transition: none;
+        }
+    }
 </style>
 
 
 <!-- Hero Section -->
 <section class="hero">
+    <div class="hero-grid">
     <div class="hero-content">
         <h1 class="hero-headline">
             Your spending summary, in your inbox every morning.
@@ -160,17 +360,61 @@ description: One calm email every morning that summarizes yesterday's spending, 
         </div>
     </div>
 
-    <!-- Email screenshot — swap this placeholder for a real <img class="shot" ...> -->
-    <div class="hero-shot">
-        <div
-            class="shot-placeholder"
-            style="aspect-ratio: 390 / 800; max-width: 390px; margin: 0 auto"
+    <!-- Daily email carousel -->
+    <div
+        class="email-carousel"
+        data-autoplay="true"
+        aria-roledescription="carousel"
+        aria-label="A look inside the daily email"
+    >
+        <button
+            class="carousel-arrow prev"
+            type="button"
+            aria-label="Previous"
         >
-            <strong>Daily email screenshot</strong>
-            A real screenshot of the morning email goes here.<br />
-            Phone proportion · about 390×800 (export 2× = 780×1600)
-            <code>/assets/images/screenshots/home-email.webp</code>
+            &lsaquo;
+        </button>
+
+        <div class="email-frame">
+            <div class="carousel-viewport">
+                <div class="carousel-track">
+                    <figure class="carousel-slide is-active">
+                        <img
+                            class="shot"
+                            src="{{ '/assets/images/screenshots/home-email-summary.png' | relative_url }}"
+                            alt="The Daily Benji morning email: yesterday's spending, the last 7 days, discretionary spending, and your spending by merchant"
+                        />
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img
+                            class="shot"
+                            src="{{ '/assets/images/screenshots/home-email-accounts.png' | relative_url }}"
+                            alt="The Daily Benji Friday edition: an account overview of which cards were most active this week"
+                        />
+                    </figure>
+                </div>
+            </div>
         </div>
+
+        <button class="carousel-arrow next" type="button" aria-label="Next">
+            &rsaquo;
+        </button>
+
+        <div class="carousel-dots" role="tablist" aria-label="Choose a view">
+            <button
+                class="carousel-dot"
+                type="button"
+                aria-label="Morning summary"
+            ></button>
+            <button
+                class="carousel-dot"
+                type="button"
+                aria-label="Friday account overview"
+            ></button>
+        </div>
+
+        <p class="carousel-caption"></p>
+    </div>
     </div>
 
 </section>
@@ -492,3 +736,97 @@ description: One calm email every morning that summarizes yesterday's spending, 
         </div>
     </div>
 </section>
+
+<script>
+    (function () {
+        const carousel = document.querySelector(".email-carousel");
+        if (!carousel) return;
+
+        const track = carousel.querySelector(".carousel-track");
+        const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
+        const dots = Array.from(carousel.querySelectorAll(".carousel-dot"));
+        const caption = carousel.querySelector(".carousel-caption");
+        const prev = carousel.querySelector(".carousel-arrow.prev");
+        const next = carousel.querySelector(".carousel-arrow.next");
+        const captions = ["Yesterday's summary", "Friday: account overview"];
+
+        // Flip data-autoplay="true" on the .email-carousel to auto-advance.
+        const autoplay = carousel.dataset.autoplay === "true";
+        const interval = 6000;
+        let i = 0;
+        let timer = null;
+
+        function go(n) {
+            i = (n + slides.length) % slides.length;
+            slides.forEach((s, k) => s.classList.toggle("is-active", k === i));
+            dots.forEach((d, k) => d.classList.toggle("is-active", k === i));
+            if (caption) caption.textContent = captions[i] || "";
+        }
+
+        function start() {
+            if (!autoplay) return;
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+                return;
+            timer = setInterval(() => go(i + 1), interval);
+        }
+        function restart() {
+            if (timer) {
+                clearInterval(timer);
+                start();
+            }
+        }
+
+        next.addEventListener("click", () => {
+            go(i + 1);
+            restart();
+        });
+        prev.addEventListener("click", () => {
+            go(i - 1);
+            restart();
+        });
+        dots.forEach((d, k) =>
+            d.addEventListener("click", () => {
+                go(k);
+                restart();
+            }),
+        );
+
+        carousel.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowRight") {
+                go(i + 1);
+                restart();
+            }
+            if (e.key === "ArrowLeft") {
+                go(i - 1);
+                restart();
+            }
+        });
+
+        // Touch swipe
+        let startX = null;
+        carousel.addEventListener(
+            "touchstart",
+            (e) => {
+                startX = e.touches[0].clientX;
+            },
+            { passive: true },
+        );
+        carousel.addEventListener("touchend", (e) => {
+            if (startX === null) return;
+            const dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 40) {
+                go(dx < 0 ? i + 1 : i - 1);
+                restart();
+            }
+            startX = null;
+        });
+
+        carousel.addEventListener("mouseenter", () => {
+            if (timer) clearInterval(timer);
+        });
+        carousel.addEventListener("mouseleave", start);
+
+        go(0);
+        start();
+    })();
+</script>
