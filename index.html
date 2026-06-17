@@ -376,20 +376,14 @@ description: One calm email every morning that summarizes yesterday's spending, 
         <p class="hero-subtext">
             No bank logins. Your data stays yours. Just one calm email a day.
         </p>
+        {% if site.signups_open %}
         <div class="hero-cta">
-            {% if site.signups_open %}
             <a href="/get-started" class="btn btn-primary">Get Started</a>
             <span class="cta-note"
                 >$5/month • Cancel anytime • We never see your bank login</span
             >
-            {% else %}
-            <span class="coming-soon-badge">Coming soon</span>
-            <span class="cta-note"
-                >Launching July 2026 • $5/month • We never see your bank
-                login</span
-            >
-            {% endif %}
         </div>
+        {% endif %}
     </div>
 
     <!-- Daily email carousel -->
