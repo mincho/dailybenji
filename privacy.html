@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Privacy - The Daily Benji
-description: Daily Benji runs on the alerts your bank already sends you — which by design contain nothing sensitive. No bank logins, no aggregators, no ads, no selling your data. Cancel and we delete everything.
+description: Daily Benji runs on the alerts your bank already sends you — which by design contain nothing sensitive. No bank logins, no third-party connections, no ads, no selling your data. Cancel and we delete everything.
 ---
 
 <style>
@@ -159,7 +159,7 @@ description: Daily Benji runs on the alerts your bank already sends you — whic
         <div class="feature">
             <div class="feature-content">
                 <h4>No bank connections</h4>
-                <p>No Plaid, Yodlee, or any aggregator. We never have — and never ask for — your bank login.</p>
+                <p>No third-party apps or account connections of any kind. We never have — and never ask for — your bank login.</p>
             </div>
         </div>
         <div class="feature">
@@ -208,28 +208,4 @@ description: Daily Benji runs on the alerts your bank already sends you — whic
 </section>
 
 <!-- CTA -->
-<section id="get-started" class="waitlist-section">
-    <div class="waitlist-content">
-        <h2>Start your Daily Benji</h2>
-        <p class="waitlist-subtitle">
-            $5 a month. Every feature included. Cancel anytime — and when you
-            do, we permanently delete every transaction, memo, and tag.
-        </p>
-
-        <form class="waitlist-form" action="/get-started" method="get">
-            <input
-                type="email"
-                name="email"
-                placeholder="your@email.com"
-                required
-            />
-            <button type="submit">Get Started</button>
-        </form>
-
-        <div class="waitlist-notes">
-            <p>✓ Every feature included</p>
-            <p>✓ Cancel anytime</p>
-            <p>✓ Real deletion when you cancel</p>
-        </div>
-    </div>
-</section>
+{% include cta.html %}

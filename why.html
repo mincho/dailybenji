@@ -71,7 +71,7 @@ description: Why we built Daily Benji — a calm morning summary of your spendin
     }
 
     .situation p {
-        font-size: 0.9375rem;
+        font-size: 1.0625rem;
         color: var(--gray-700);
         line-height: 1.6;
         margin: 0;
@@ -139,9 +139,9 @@ description: Why we built Daily Benji — a calm morning summary of your spendin
         <div class="situation">
             <h3>The privacy-minded</h3>
             <p>
-                If handing a "trusted" aggregator your bank credentials is a
-                hard no, bank alerts let you track spending without ever sharing
-                a password.
+                If handing a "trusted" third-party app your bank credentials is
+                a hard no, bank alerts let you track spending without ever
+                sharing a password.
             </p>
         </div>
 
@@ -217,28 +217,4 @@ description: Why we built Daily Benji — a calm morning summary of your spendin
 </section>
 
 <!-- CTA -->
-<section id="get-started" class="waitlist-section">
-    <div class="waitlist-content">
-        <h2>Start your Daily Benji</h2>
-        <p class="waitlist-subtitle">
-            $5 a month. Every feature included. Cancel anytime — and when you
-            do, we permanently delete every transaction, memo, and tag.
-        </p>
-
-        <form class="waitlist-form" action="/get-started" method="get">
-            <input
-                type="email"
-                name="email"
-                placeholder="your@email.com"
-                required
-            />
-            <button type="submit">Get Started</button>
-        </form>
-
-        <div class="waitlist-notes">
-            <p>✓ Every feature included</p>
-            <p>✓ Cancel anytime</p>
-            <p>✓ Real deletion when you cancel</p>
-        </div>
-    </div>
-</section>
+{% include cta.html %}

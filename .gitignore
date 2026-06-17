@@ -7,3 +7,10 @@ _site/
 .DS_Store
 .env
 temp_assets/
+
+# Real source emails contain personal financial data — never commit
+*.eml
+mockups/*.eml.eml
+
+# Local screenshot tooling (excluded from the Jekyll build; regenerable; derived from real emails)
+mockups/

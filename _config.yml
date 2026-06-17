@@ -1,3 +1,8 @@
+# Feature flags
+# signups_open: flip to true at launch to restore the signup CTAs site-wide.
+# When false, every "Get Started" CTA shows a "Coming soon — July 2026" indicator.
+signups_open: false
+
 # Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your whole blog, values
@@ -33,6 +38,7 @@ plugins:
 exclude:
   - MARKETING_FEATURES.md
   - CLAUDE.md
+  - mockups
 
 # Exclude from processing.
 # The following items will not be processed, by default.

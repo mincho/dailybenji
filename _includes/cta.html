@@ -1,0 +1,30 @@
+<!-- Bottom-of-page CTA. Signup form when site.signups_open is true; Coming Soon block otherwise. -->
+<section id="get-started" class="waitlist-section">
+    <div class="waitlist-content">
+        {% if site.signups_open %}
+        <h2>Start your Daily Benji</h2>
+        <p class="waitlist-subtitle">
+            $5 a month. Every feature included. Cancel anytime — and when you
+            do, we permanently delete every transaction, memo, and tag.
+        </p>
+
+        <form class="waitlist-form" action="/get-started" method="get">
+            <input
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+            />
+            <button type="submit">Get Started</button>
+        </form>
+
+        <div class="waitlist-notes">
+            <p>✓ Every feature included</p>
+            <p>✓ Cancel anytime</p>
+            <p>✓ Real deletion when you cancel</p>
+        </div>
+        {% else %}
+        {% include coming-soon.html %}
+        {% endif %}
+    </div>
+</section>

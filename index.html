@@ -18,27 +18,51 @@ description: One calm email every morning that summarizes yesterday's spending, 
         color: var(--gray-600);
         max-width: 600px;
         margin: 0 auto var(--space-lg);
-        font-size: 0.9375rem;
+        font-size: 1.0625rem;
     }
 
+    /* Observations as an editorial ledger: italic serif tag | clean sentence */
     .observation-list {
-        list-style: none;
-        padding: 0;
-        max-width: 720px;
+        max-width: 760px;
         margin: 0 auto;
     }
 
-    .observation-list li {
-        background: var(--gray-50);
-        padding: var(--space-md) var(--space-lg);
-        margin-bottom: var(--space-sm);
-        border-radius: 8px;
-        text-align: left;
+    .observation {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: var(--space-md) var(--space-lg);
+        align-items: baseline;
+        padding: var(--space-md) 0;
+        border-top: 1px solid var(--gray-200);
+    }
+
+    .observation:last-child {
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+    .observation dt {
+        font-family: var(--font-serif);
         font-style: italic;
-        color: var(--gray-700);
-        line-height: 1.5;
-        border-left: 3px solid var(--gray-400);
-        font-size: 0.9375rem;
+        font-weight: 600;
+        font-size: 1.0625rem;
+        color: var(--gray-500);
+    }
+
+    .observation dd {
+        margin: 0;
+        font-size: 1.0625rem;
+        line-height: 1.6;
+        color: var(--gray-800);
+    }
+
+    @media (max-width: 600px) {
+        .observation {
+            grid-template-columns: 1fr;
+            gap: var(--space-xs);
+        }
+        .observation dt {
+            font-size: 1rem;
+        }
     }
 
     /* Small uppercase kicker above section headings */
@@ -176,16 +200,16 @@ description: One calm email every morning that summarizes yesterday's spending, 
     }
 
     /* Clean email frame — a capped "peek" with a soft fade at the bottom */
+    /* The screenshots carry their own bordered email card, so the frame is
+       just a clipping "peek" — no border/shadow of its own (avoids a card-in-card). */
     .email-frame {
         position: relative;
         height: 560px;
         max-width: 600px;
         margin: 0 auto;
-        border: 1px solid var(--gray-200);
         border-radius: 14px;
         overflow: hidden;
         background: var(--white);
-        box-shadow: 0 16px 44px rgba(0, 0, 0, 0.16);
     }
 
     .email-frame::after {
@@ -353,10 +377,18 @@ description: One calm email every morning that summarizes yesterday's spending, 
             No bank logins. Your data stays yours. Just one calm email a day.
         </p>
         <div class="hero-cta">
+            {% if site.signups_open %}
             <a href="/get-started" class="btn btn-primary">Get Started</a>
             <span class="cta-note"
                 >$5/month • Cancel anytime • We never see your bank login</span
             >
+            {% else %}
+            <span class="coming-soon-badge">Coming soon</span>
+            <span class="cta-note"
+                >Launching July 2026 • $5/month • We never see your bank
+                login</span
+            >
+            {% endif %}
         </div>
     </div>
 
@@ -381,15 +413,36 @@ description: One calm email every morning that summarizes yesterday's spending, 
                     <figure class="carousel-slide is-active">
                         <img
                             class="shot"
-                            src="{{ '/assets/images/screenshots/home-email-summary.png' | relative_url }}"
-                            alt="The Daily Benji morning email: yesterday's spending, the last 7 days, discretionary spending, and your spending by merchant"
+                            src="{{ '/assets/images/screenshots/email-summary.png' | relative_url }}"
+                            alt="The Daily Benji morning email: yesterday's spending, the last 7 days, and discretionary spending at a glance"
                         />
                     </figure>
                     <figure class="carousel-slide">
                         <img
                             class="shot"
-                            src="{{ '/assets/images/screenshots/home-email-accounts.png' | relative_url }}"
-                            alt="The Daily Benji Friday edition: an account overview of which cards were most active this week"
+                            src="{{ '/assets/images/screenshots/email-mon-categories.png' | relative_url }}"
+                            alt="The Daily Benji Monday edition: a breakdown of last week's spending by category with 7-day vs 30-day trends"
+                        />
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img
+                            class="shot"
+                            src="{{ '/assets/images/screenshots/email-wed-observations.png' | relative_url }}"
+                            alt="The Daily Benji Wednesday edition: specific observations from recent spending — anomalies, trends, and new merchants"
+                        />
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img
+                            class="shot"
+                            src="{{ '/assets/images/screenshots/email-thu-discretionary.png' | relative_url }}"
+                            alt="The Daily Benji Thursday edition: the discretionary categories you have the most control over"
+                        />
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img
+                            class="shot"
+                            src="{{ '/assets/images/screenshots/email-sun-review.png' | relative_url }}"
+                            alt="The Daily Benji Sunday edition: a full weekly review with top merchants, top categories, and year-to-date totals"
                         />
                     </figure>
                 </div>
@@ -409,7 +462,22 @@ description: One calm email every morning that summarizes yesterday's spending, 
             <button
                 class="carousel-dot"
                 type="button"
-                aria-label="Friday account overview"
+                aria-label="Monday: spending by category"
+            ></button>
+            <button
+                class="carousel-dot"
+                type="button"
+                aria-label="Wednesday: worth noticing"
+            ></button>
+            <button
+                class="carousel-dot"
+                type="button"
+                aria-label="Thursday: discretionary spending"
+            ></button>
+            <button
+                class="carousel-dot"
+                type="button"
+                aria-label="Sunday: weekly review"
             ></button>
         </div>
 
@@ -445,18 +513,17 @@ description: One calm email every morning that summarizes yesterday's spending, 
         <div class="solution-point">
             <h3>Privacy-first by design</h3>
             <p>
-                No bank logins. No Plaid, no aggregators. Ever. The $5/month
-                subscription is the entire business model — no ads, no selling
-                data.
+                No bank logins. No third-party connections to your accounts.
+                Ever. The $5/month subscription is the entire business model —
+                no ads, no selling data.
             </p>
         </div>
         <div class="solution-point">
             <h3>Powerful when you want it</h3>
             <p>
-                The email is enough on its own. But underneath is a full app you
-                own and control — attach receipts, set goals, share with your
-                partner, export everything. There when you want it, out of the
-                way when you don't.
+                Underneath the email is a full app you own and control — attach
+                receipts, set goals, share with your partner, and export
+                everything whenever you want to dig in.
             </p>
         </div>
     </div>
@@ -465,51 +532,65 @@ description: One calm email every morning that summarizes yesterday's spending, 
 <!-- How it works -->
 <section class="how-it-works">
     <p class="section-kicker">How it works</p>
-    <h2>Set it up once. Then just read.</h2>
+    <h2>It runs on the alerts you already get.</h2>
     <p class="section-subtitle">
-        However your spending gets in, the morning email is the same.
+        Your banks already email you every time you spend. Benji reads those,
+        makes sense of the mess, and sends back one clear summary each morning.
     </p>
 
-    <div class="steps">
-        <div class="step">
-            <div class="step-number">1</div>
-            <div class="step-content">
-                <h4>Auto-forward, type, or import</h4>
-                <p>
-                    Set a one-time rule that auto-forwards your bank's
-                    transaction alerts to your private Benji inbox — or add cash
-                    by hand, or upload a CSV. Set it once and never think about
-                    it again.
-                </p>
+    <div class="flow">
+        <div class="flow-node">
+            <div class="flow-art">
+                <div class="alert-pile" aria-hidden="true">
+                    <span class="alert">Chase: $52.10 at the grocery store</span>
+                    <span class="alert">Amex: a $9.20 charge was approved</span>
+                    <span class="alert">Citi: $18.40 payment to a merchant</span>
+                </div>
             </div>
+            <p class="flow-label">
+                The transaction alerts your banks already send
+            </p>
         </div>
 
-        <div class="step-arrow">→</div>
+        <div class="flow-link" aria-hidden="true"></div>
 
-        <div class="step">
-            <div class="step-number">2</div>
-            <div class="step-content">
-                <h4>Benji organizes and notices</h4>
-                <p>
-                    We categorize every charge, roll up your cards, catch
-                    subscriptions, and flag what's out of the ordinary.
-                </p>
+        <div class="flow-node">
+            <div class="flow-art">
+                <div class="flow-benji-mark">
+                    <img
+                        src="{{ '/assets/images/benji-icon.svg' | relative_url }}"
+                        alt=""
+                    />
+                </div>
             </div>
+            <p class="flow-label">
+                Benji sorts every charge, rolls up your cards, and flags
+                what's out of the ordinary
+            </p>
         </div>
 
-        <div class="step-arrow">→</div>
+        <div class="flow-link" aria-hidden="true"></div>
 
-        <div class="step">
-            <div class="step-number">3</div>
-            <div class="step-content">
-                <h4>You read one email a day</h4>
-                <p>
-                    Tomorrow morning, your first Daily Benji arrives — every
-                    transaction from every card, in one place.
-                </p>
+        <div class="flow-node">
+            <div class="flow-art">
+                <div class="mini-email" aria-hidden="true">
+                    <div class="mini-head">THE DAILY BENJI</div>
+                    <div class="mini-amount">
+                        $42<span>spent yesterday</span>
+                    </div>
+                    <div class="mini-bars">
+                        <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                    </div>
+                </div>
             </div>
+            <p class="flow-label">One clear email, in your inbox each morning</p>
         </div>
     </div>
+
+    <p class="flow-aside">
+        Prefer to log something yourself? Add a cash expense by hand or import
+        a CSV anytime — it lands in the same morning email.
+    </p>
 </section>
 
 <!-- Insights worth reading -->
@@ -520,13 +601,44 @@ description: One calm email every morning that summarizes yesterday's spending, 
         Specific, dated observations — each one cites real transactions so you
         can verify it. Dismiss any you don't want to see again.
     </p>
-    <ul class="observation-list">
-        <li>"Starbucks: $42 on May 8 — about 6× the typical $7 from this merchant."</li>
-        <li>"Restaurants is up 54% in the last 30 days ($420 vs $273 the prior 30)."</li>
-        <li>"11 active monthly subscriptions totaling $187/month — $2,244/year if all renew."</li>
-        <li>"No charge from Spotify in 47 days (previously $10.99/mo). Did you mean to cancel?"</li>
-        <li>"Sweetgreen ≈ $1,612/year at current pace — at a 10-year S&amp;P 500 average of 7%, that compounds to ≈ $22,290."</li>
-    </ul>
+    <dl class="observation-list">
+        <div class="observation">
+            <dt>Outlier</dt>
+            <dd>
+                A <strong>$42</strong> charge at Starbucks on May 8 — about
+                <strong>6×</strong> the typical $7 from this merchant.
+            </dd>
+        </div>
+        <div class="observation">
+            <dt>Trend</dt>
+            <dd>
+                Restaurants are up <strong>54%</strong> over the last 30 days —
+                $420 versus $273 the month before.
+            </dd>
+        </div>
+        <div class="observation">
+            <dt>Subscriptions</dt>
+            <dd>
+                <strong>11</strong> active monthly subscriptions totaling
+                <strong>$187/mo</strong> — that's $2,244 a year if they all
+                renew.
+            </dd>
+        </div>
+        <div class="observation">
+            <dt>Gone quiet</dt>
+            <dd>
+                No charge from Spotify in <strong>47 days</strong> (previously
+                $10.99/mo). Did you mean to cancel?
+            </dd>
+        </div>
+        <div class="observation">
+            <dt>The long view</dt>
+            <dd>
+                Sweetgreen is on pace for <strong>≈$1,612</strong> this year —
+                invested at a 7% return, that's ≈$22,290 in a decade.
+            </dd>
+        </div>
+    </dl>
 </section>
 
 <!-- Simple to read, powerful to use -->
@@ -611,9 +723,9 @@ description: One calm email every morning that summarizes yesterday's spending, 
         <div class="manifesto-item">
             <h4>We never touch your bank</h4>
             <p>
-                No Plaid, no Yodlee, no aggregator. Bank alert emails are the
-                only data source — and they don't contain account numbers or
-                credentials by design.
+                No third-party apps wired into your accounts. Bank alert emails
+                are the only data source — and they don't contain account
+                numbers or credentials by design.
             </p>
         </div>
 
@@ -651,7 +763,7 @@ description: One calm email every morning that summarizes yesterday's spending, 
             <li>Every feature included</li>
             <li>No upsells, no premium tier, no add-ons</li>
             <li>Cancel anytime, self-serve from settings</li>
-            <li>No bank logins, no Plaid, no aggregators</li>
+            <li>No bank logins, no third-party connections</li>
         </ul>
         <p class="pricing-closing">
             Cancel and we delete everything — your full transaction history,
@@ -669,9 +781,10 @@ description: One calm email every morning that summarizes yesterday's spending, 
         <div class="faq-item">
             <h4>Do you connect to my bank?</h4>
             <p>
-                No. We never ask for your bank login and don't use Plaid or any
-                aggregator. You forward your bank's transaction-alert emails —
-                those don't contain credentials or account numbers.
+                No. We never ask for your bank login and don't wire into your
+                accounts through any third-party app. You forward your bank's
+                transaction-alert emails — those don't contain credentials or
+                account numbers.
             </p>
         </div>
         <div class="faq-item">
@@ -704,129 +817,14 @@ description: One calm email every morning that summarizes yesterday's spending, 
             <p>
                 Anytime. Export a full CSV, or a ZIP that bundles the CSV with
                 every receipt you've attached — filtered however you like. Great
-                for tax season.
+                for tax season, expense reporting, or securely sharing with your
+                favorite AI tool or LLM.
             </p>
         </div>
     </div>
 </section>
 
 <!-- Get Started -->
-<section id="get-started" class="waitlist-section">
-    <div class="waitlist-content">
-        <h2>Start your Daily Benji</h2>
-        <p class="waitlist-subtitle">
-            $5 a month. Every feature included. Cancel anytime — and when you
-            do, we permanently delete every transaction, memo, and tag.
-        </p>
+{% include cta.html %}
 
-        <form class="waitlist-form" action="/get-started" method="get">
-            <input
-                type="email"
-                name="email"
-                placeholder="your@email.com"
-                required
-            />
-            <button type="submit">Get Started</button>
-        </form>
-
-        <div class="waitlist-notes">
-            <p>✓ Every feature included</p>
-            <p>✓ Cancel anytime</p>
-            <p>✓ Real deletion when you cancel</p>
-        </div>
-    </div>
-</section>
-
-<script>
-    (function () {
-        const carousel = document.querySelector(".email-carousel");
-        if (!carousel) return;
-
-        const track = carousel.querySelector(".carousel-track");
-        const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
-        const dots = Array.from(carousel.querySelectorAll(".carousel-dot"));
-        const caption = carousel.querySelector(".carousel-caption");
-        const prev = carousel.querySelector(".carousel-arrow.prev");
-        const next = carousel.querySelector(".carousel-arrow.next");
-        const captions = ["Yesterday's summary", "Friday: account overview"];
-
-        // Flip data-autoplay="true" on the .email-carousel to auto-advance.
-        const autoplay = carousel.dataset.autoplay === "true";
-        const interval = 6000;
-        let i = 0;
-        let timer = null;
-
-        function go(n) {
-            i = (n + slides.length) % slides.length;
-            slides.forEach((s, k) => s.classList.toggle("is-active", k === i));
-            dots.forEach((d, k) => d.classList.toggle("is-active", k === i));
-            if (caption) caption.textContent = captions[i] || "";
-        }
-
-        function start() {
-            if (!autoplay) return;
-            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
-                return;
-            timer = setInterval(() => go(i + 1), interval);
-        }
-        function restart() {
-            if (timer) {
-                clearInterval(timer);
-                start();
-            }
-        }
-
-        next.addEventListener("click", () => {
-            go(i + 1);
-            restart();
-        });
-        prev.addEventListener("click", () => {
-            go(i - 1);
-            restart();
-        });
-        dots.forEach((d, k) =>
-            d.addEventListener("click", () => {
-                go(k);
-                restart();
-            }),
-        );
-
-        carousel.addEventListener("keydown", (e) => {
-            if (e.key === "ArrowRight") {
-                go(i + 1);
-                restart();
-            }
-            if (e.key === "ArrowLeft") {
-                go(i - 1);
-                restart();
-            }
-        });
-
-        // Touch swipe
-        let startX = null;
-        carousel.addEventListener(
-            "touchstart",
-            (e) => {
-                startX = e.touches[0].clientX;
-            },
-            { passive: true },
-        );
-        carousel.addEventListener("touchend", (e) => {
-            if (startX === null) return;
-            const dx = e.changedTouches[0].clientX - startX;
-            if (Math.abs(dx) > 40) {
-                go(dx < 0 ? i + 1 : i - 1);
-                restart();
-            }
-            startX = null;
-        });
-
-        carousel.addEventListener("mouseenter", () => {
-            if (timer) clearInterval(timer);
-        });
-        carousel.addEventListener("mouseleave", start);
-
-        go(0);
-        start();
-    })();
-</script>
+<script src="{{ '/assets/js/carousel.js' | relative_url }}" defer></script>

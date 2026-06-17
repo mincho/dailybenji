@@ -10,11 +10,7 @@
         </a>
 
         <!-- Mobile menu button -->
-        <button
-            class="mobile-menu-btn"
-            onclick="toggleMenu()"
-            aria-label="Menu"
-        >
+        <button class="mobile-menu-btn" aria-label="Menu">
             <span></span>
             <span></span>
             <span></span>
@@ -26,33 +22,21 @@
             <li><a href="/privacy">Privacy</a></li>
             <li><a href="/why">Why</a></li>
             <li class="mobile-only">
+                {% if site.signups_open %}
                 <a href="/get-started" class="nav-cta-mobile">Get Started</a>
+                {% else %}
+                <span class="coming-soon-badge">Coming July 2026</span>
+                {% endif %}
             </li>
         </ul>
 
         <!-- Desktop CTA button -->
+        {% if site.signups_open %}
         <a href="/get-started" class="nav-cta desktop-only">Get Started</a>
+        {% else %}
+        <span class="coming-soon-badge desktop-only">Coming July 2026</span>
+        {% endif %}
     </nav>
 </header>
 
-<script>
-    function toggleMenu() {
-        const nav = document.getElementById("navLinks");
-        nav.classList.toggle("show");
-        document.querySelector(".mobile-menu-btn").classList.toggle("active");
-    }
-
-    // Close menu when clicking outside
-    document.addEventListener("click", function (event) {
-        const nav = document.getElementById("navLinks");
-        const btn = document.querySelector(".mobile-menu-btn");
-        if (
-            !nav.contains(event.target) &&
-            !btn.contains(event.target) &&
-            nav.classList.contains("show")
-        ) {
-            nav.classList.remove("show");
-            btn.classList.remove("active");
-        }
-    });
-</script>
+<!-- Menu behavior lives in /assets/js/site.js (loaded site-wide, no inline JS) -->
