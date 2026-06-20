@@ -75,6 +75,13 @@ description: Daily Benji runs on the alerts your bank already sends you — whic
         border-bottom: none;
     }
 
+    .ledger-col.see li::before {
+        content: "✓";
+        color: var(--black);
+        font-weight: 600;
+        margin-right: 0.5rem;
+    }
+
     .ledger-col.never {
         background: var(--gray-50);
     }
@@ -129,7 +136,7 @@ description: Daily Benji runs on the alerts your bank already sends you — whic
         else.
     </p>
     <div class="ledger">
-        <div class="ledger-col">
+        <div class="ledger-col see">
             <h3>What we see</h3>
             <ul>
                 <li>The merchant name</li>
@@ -142,11 +149,11 @@ description: Daily Benji runs on the alerts your bank already sends you — whic
         <div class="ledger-col never">
             <h3>What we never see</h3>
             <ul>
-                <li>Your bank login or password</li>
-                <li>Full account or card numbers</li>
-                <li>Your account balances</li>
-                <li>Social Security or license numbers</li>
-                <li>Anything we'd need a bank connection for</li>
+                <li>No bank login or password</li>
+                <li>No full account or card numbers</li>
+                <li>No account balances</li>
+                <li>No Social Security or license numbers</li>
+                <li>Nothing that needs a bank connection</li>
             </ul>
         </div>
     </div>
